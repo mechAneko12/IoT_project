@@ -1,1 +1,1 @@
-web: gunicorn girls.wsgi
+web: gunicorn manager_project.wsgi
