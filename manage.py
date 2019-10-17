@@ -5,7 +5,6 @@ import sys
 
 
 def main():
-    sys.setrecursionlimit(10000)
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'manager_project.settings')
     try:
         from django.core.management import execute_from_command_line
