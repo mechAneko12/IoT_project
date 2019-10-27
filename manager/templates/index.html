@@ -66,7 +66,7 @@
                  console.log("b");
                  const descriptor1 = Object.getOwnPropertyDescriptor(characteristic, '00002901-0000-1000-8000-00805f9b34fb');
                  console.log("c");
-                 console.log(descriptor1.value);
+                 console.log(descriptor1.value.getUint8(0));
                  console.log("d");
                });
             }   
