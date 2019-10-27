@@ -63,8 +63,11 @@
                  //console.log("a" + characteristic.readValue().getUint8(0));
                  console.log("a");
                  characteristic.addEventListener('characteristicvaluechanged', handleNotifications);
+                 console.log("b");
                  descriptor = characteristic.getDescriptor();
+                 console.log("c");
                  value = descriptor.readValue()
+                 console.log("d");
                });
             }   
           })
