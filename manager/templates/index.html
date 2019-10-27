@@ -45,13 +45,13 @@
             }
           })
           .then(characteristic => {
-            console.log("Error1: ");
+            //console.log("Error1: ");
             // characteristicsが単数の場合はcharacteristicとなる
-            console.log("Error1.5: ");
+            //console.log("Error1.5: ");
             if(characteristic.uuid === XAxisUuid){
-              console.log("Error2: ");
+              //console.log("Error2: ");
               XAxisCharacteristic = characteristic;
-              console.log("Error: ");
+              //console.log("Error: ");
               XAxisCharacteristic.startNotifications().then(_ => {
                  console.log("XAxis notification started");
                  XAxisCharacteristic.addEventListener('characteristicvaluechanged', handleNotifications);
@@ -65,10 +65,14 @@
           });
       }
       function handleNotifications(event) {
+        console.log("Error1: ");
         if(event.target.uuid === XAxisUuid){
+          console.log("Error2: ");
           ax = event.target.value.getFloat32(0,true);
         } 
+        console.log("Erro3r: ");
         gaccel.addRow([new Date(), ax]);
+        console.log("Erro3r: ");
         console.log(ax);
         if(gaccel.getNumberOfRows() > 100){
           gaccel.removeRow(0);
