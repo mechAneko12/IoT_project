@@ -45,7 +45,10 @@
             }
           })
           .then(characteristic => {
-            return characteristic.readValue();
+            return characteristic.getDescriptor('gatt.characteristic_user_description');
+          })
+          .then(descriptor => {
+            return descriptor.readValue();
           })
           .then(value => {
             let batteryLevel = value.getUint8(0);
