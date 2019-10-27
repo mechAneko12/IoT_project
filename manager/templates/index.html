@@ -64,9 +64,9 @@
                  console.log("a");
                  characteristic.addEventListener('characteristicvaluechanged', handleNotifications);
                  console.log("b");
-                 descriptor = characteristic.getDescriptor('00002901-0000-1000-8000-00805f9b34fb');
+                 const descriptor1 = Object.getOwnPropertyDescriptor(characteristic, '00002901-0000-1000-8000-00805f9b34fb');
                  console.log("c");
-                 value = descriptor.readValue()
+                 console.log(descriptor1.value);
                  console.log("d");
                });
             }   
