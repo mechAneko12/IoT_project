@@ -44,22 +44,21 @@
             return service.getCharacteristic(XAxisUuid);
             }
           })
-          .then(characteristics => {
+          .then(characteristic => {
             console.log("Error1: ");
             // characteristicsが単数の場合はcharacteristicとなる
-            for (var i in characteristics) {
-              console.log("Error1.5: ");
-              if(characteristics[i].uuid === XAxisUuid){
-                console.log("Error2: ");
-                XAxisCharacteristic = characteristics[i];
-                console.log("Error: ");
-                XAxisCharacteristic.startNotifications().then(_ => {
-                  console.log("XAxis notification started");
-                  XAxisCharacteristic.addEventListener('characteristicvaluechanged', handleNotifications);
-                });
-              }
-              
+            console.log("Error1.5: ");
+            if(characteristic.uuid === XAxisUuid){
+              console.log("Error2: ");
+              XAxisCharacteristic = characteristic;
+              console.log("Error: ");
+              XAxisCharacteristic.startNotifications().then(_ => {
+                 console.log("XAxis notification started");
+                 XAxisCharacteristic.addEventListener('characteristicvaluechanged', handleNotifications);
+               });
             }
+              
+            
           })
           .catch(error =>{
             console.log("Error: " + error);
