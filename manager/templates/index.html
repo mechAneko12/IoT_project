@@ -41,7 +41,7 @@
             console.log('Getting Characteristic...');
             if (XAxisUuid) {
             // Get all characteristics that match this UUID.
-            return service.getCharacteristics(XAxisUuid);
+            return service.getCharacteristic(XAxisUuid);
             }
           })
           .then(characteristics => {
