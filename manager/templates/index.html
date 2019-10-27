@@ -60,7 +60,7 @@
               console.log(characteristic);
               characteristic.startNotifications().then(_ => {
                  console.log("XAxis notification started");
-                 console.log("a" + characteristic.readValue().getUint8(0));
+                 //console.log("a" + characteristic.readValue().getUint8(0));
                  console.log("a");
                  characteristic.addEventListener('characteristicvaluechanged', handleNotifications);
                  descriptor = characteristic.getDescriptor();
