@@ -54,7 +54,8 @@
               console.log(characteristic);
               XAxisCharacteristic.startNotifications().then(_ => {
                  console.log("XAxis notification started");
-                 console.log("a" + XAxisCharacteristic.readvalue())
+                 console.log("a" + XAxisCharacteristic.readvalue());
+                 console.log("a");
                  XAxisCharacteristic.addEventListener('characteristicvaluechanged', handleNotifications);
                });
             }
