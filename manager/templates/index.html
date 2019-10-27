@@ -1,13 +1,92 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    {% load static %}
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <meta charset="utf-8" />
+    <title>Web Bluetooth API Testing</title>
   </head>
   <body>
-    <h1 id="hello_text">Hello World</h1>
-    <script src="{% static 'main.js' %}"></script>
+    <p>BLE</p>
+    <p><form><button id="startNotifications">Start notifications</button></form></p>
+    <div id="accelerometer" style="width:100%; height:200px;"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      var XAxisCharacteristic;
+      var ax;
+      let serviceUuid = "human_interface_device";
+      let XAxisUuid = "0xDFB1";
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawAccelChart);
+      var accOptions = {
+        title: '',
+        // curveType: 'function',
+        legend: { position: 'bottom' },
+        vAxis: { minValue: -1000, maxValue: 1000 },
+      };
+      var gaccel, chart;
+      function beginBLE(){
+        // 接続するデバイスをある程度絞ってからAdvertisingが動作する
+        //let filters = [];
+        //filters.push({services: [serviceUuid]});
+        navigator.bluetooth.requestDevice({acceptAllDevices:true, optionalServices: [serviceUuid]})
+          .then(device => {
+            console.log("Connecting to device");
+            return device.gatt.connect();
+          })
+          .then(server => {
+            console.log('Getting Service...');
+            return server.getPrimaryService(serviceUuid);
+          })
+          .then(device => {
+            console.log("Connecting to device");
+            return device.gatt.connect();
+          })
+          .then(service => {
+            // Serviceが複数ある場合はservicesで配列となる
+            console.log('Getting Characteristic...');
+            return service.getCharacteristics();
+          })
+          .then(characteristics => {
+            // characteristicsが単数の場合はcharacteristicとなる
+            for (var i in characteristics) {
+              if(characteristics[i].uuid === XAxisUuid){
+                XAxisCharacteristic = characteristics[i];
+                XAxisCharacteristic.startNotifications().then(_ => {
+                  console.log("XAxis notification started");
+                  XAxisCharacteristic.addEventListener('characteristicvaluechanged', handleNotifications);
+                });
+              }
+              
+            }
+          })
+          .catch(error =>{
+            console.log("Error: " + error);
+          });
+      }
+      function handleNotifications(event) {
+        if(event.target.uuid === XAxisUuid){
+          ax = event.target.value.getFloat32(0,true);
+        } 
+        gaccel.addRow([new Date(), ax]);
+        console.log(ax);
+        if(gaccel.getNumberOfRows() > 100){
+          gaccel.removeRow(0);
+        }
+        chart.draw(gaccel, accOptions);
+      }
+      document.querySelector('#startNotifications').addEventListener('click', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        console.log("Begin BLE scanning");
+        beginBLE();
+      });
+      function drawAccelChart() {
+        gaccel = new google.visualization.DataTable();
+        gaccel.addColumn('datetime', 'Time');
+        gaccel.addColumn('number', 'X');
+        gaccel.addRow([new Date(), 1]);
+        chart = new google.charts.Line(document.getElementById('accelerometer'));
+        chart.draw(gaccel, accOptions);
+      }
+    </script>
   </body>
 </html>
