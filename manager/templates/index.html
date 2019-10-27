@@ -48,7 +48,7 @@
             return characteristic.readValue();
           })
           .then(value => {
-            let batteryLevel = value.getFloat32(0,true).toString(10);
+            let batteryLevel = value.getUint8(0);
             console.log(`> バッテリーレベルは${batteryLevel}%です`);
           })
           .then(characteristic => {
