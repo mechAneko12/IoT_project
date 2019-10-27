@@ -39,7 +39,7 @@
           .then(service => {
             // Serviceが複数ある場合はservicesで配列となる
             console.log('Getting Characteristic...');
-            if (characteristicUuid) {
+            if (XAxisUuid) {
             // Get all characteristics that match this UUID.
             return service.getCharacteristics(XAxisUuid);
             }
