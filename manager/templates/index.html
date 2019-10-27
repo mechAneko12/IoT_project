@@ -45,7 +45,7 @@
             }
           })
           .then(characteristic => {
-            return characteristic.getDescriptor('gatt.characteristic_user_description');
+            return characteristic.getDescriptor('00002901-0000-1000-8000-00805f9b34fb');
           })
           .then(descriptor => {
             return descriptor.readValue();
