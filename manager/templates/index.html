@@ -57,12 +57,11 @@
             if(characteristic.uuid === XAxisUuid){
               //console.log("Error2: ");
               console.log(characteristic);
-              characteristic.addEventListener('characteristicvaluechanged', handleNotifications).then(_ => {
-                 console.log("XAxis notification started");
-                 //console.log(characteristic.readValue().getUint8(0));
-                 console.log("a");
-                 characteristic.startNotifications();
-               });
+              characteristic.addEventListener('characteristicvaluechanged', handleNotifications)
+              console.log("XAxis notification started");
+               
+              characteristic.startNotifications();
+               
             }       
           })
           .catch(error =>{
