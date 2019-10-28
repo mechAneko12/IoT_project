@@ -23,12 +23,6 @@
         vAxis: { minValue: -1000, maxValue: 1000 },
       };
       var gaccel, chart;
-      function sleep(waitMsec) {
-        var startMsec = new Date();
-      
-        // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
-        while (new Date() - startMsec < waitMsec);
-      }
       function beginBLE(){
         // 接続するデバイスをある程度絞ってからAdvertisingが動作する
         //let filters = [];
@@ -68,10 +62,8 @@
                
               characteristic.startNotifications();
               console.log("notify");
-              while(true){
-                console.log(characteristic.value);
-                sleep(2500)
-              }
+              let value = characteristic.value;
+              console.log(value);
               console.log("value");
                
             }       
