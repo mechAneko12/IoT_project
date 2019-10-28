@@ -77,7 +77,6 @@
         return characteristic.startNotifications()
         .then(char => {
           characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
-          console.log(characteristic.readValue().getUnit8(0));
           console.log("notify");
         });
       }
