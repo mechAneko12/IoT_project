@@ -62,7 +62,7 @@
                
               characteristic.startNotifications();
               console.log("notify");
-              console.log(characteristic.value);
+              console.log(characteristic.value.getFloat32(0,true));
               console.log("value");
                
             }       
