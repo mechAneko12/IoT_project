@@ -62,7 +62,9 @@
                
               characteristic.startNotifications();
               console.log("notify");
-              console.log(characteristic.value);
+              while(true){
+                console.log(characteristic.value);
+              }
               console.log("value");
                
             }       
