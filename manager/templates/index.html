@@ -78,7 +78,7 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          console.log(typeof characteristic.value);
+          console.log(characteristic.value.toString());
         });
       }
       function handleNotifications(event) {
