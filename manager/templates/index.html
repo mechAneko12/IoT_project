@@ -74,9 +74,9 @@
           });*/
       }
       function handleCharacteristic(characteristic) {
-        return characteristic.startNotification()
+        return characteristic.startNotifications()
         .then(char => {
-          characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
+          characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
         });
       }
