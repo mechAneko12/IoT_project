@@ -43,15 +43,14 @@
             // Get all characteristics that match this UUID.
             return service.getCharacteristic(XAxisUuid);
             }
-          })
+          })/*
           .then(characteristic => {
             return characteristic.readValue();
-            console.log('aaaa');
           })
           .then(value => {
             let batteryLevel = value.getUint8(0);
             console.log(`> バッテリーレベルは${batteryLevel}%です`);
-          })
+          })*/
           .then(characteristic => {
             // characteristicsが単数の場合はcharacteristicとなる
             //console.log("Error1.5: ");
@@ -75,7 +74,7 @@
           });*/
       }
       function handleCharacteristic(characteristic) {
-        return characteristic.startNotifications()
+        return characteristic.startNotification()
         .then(char => {
           characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
           console.log("notify");
