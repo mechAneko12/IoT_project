@@ -77,7 +77,7 @@
         return characteristic.startNotifications()
         .then(char => {
           characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
-          console.log(characteristic.readValue())
+          console.log(characteristic.readValue());
           console.log("notify");
         });
       }
