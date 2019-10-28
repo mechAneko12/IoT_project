@@ -46,6 +46,7 @@
           })
           .then(characteristic => {
             return characteristic.readValue();
+            console.log('aaaa');
           })
           .then(value => {
             let batteryLevel = value.getUint8(0);
