@@ -77,10 +77,11 @@
         return characteristic.startNotifications()
         .then(char => {
           characteristic.addEventListener('characteristicvaluechanged',handleNotifications);
+          console.log(characteristic.readValue())
           console.log("notify");
         });
       }
-      function handleNotifications() {
+      function handleNotifications(event) {
         console.log("Error1: ");
         if(event.target.uuid === XAxisUuid){
           console.log("Error2: ");
