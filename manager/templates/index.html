@@ -52,7 +52,6 @@
             console.log(`> バッテリーレベルは${batteryLevel}%です`);
           })*/
           .then(characteristic => {
-            //console.log("Error1: ");
             // characteristicsが単数の場合はcharacteristicとなる
             //console.log("Error1.5: ");
             if(characteristic.uuid === XAxisUuid){
@@ -60,20 +59,11 @@
               console.log(characteristic);
               characteristic.startNotifications().then(_ => {
                  console.log("XAxis notification started");
-                 //console.log("a" + characteristic.readValue().getUint8(0));
+                 console.log(characteristic.readValue().getUint8(0));
                  console.log("a");
                  characteristic.addEventListener('characteristicvaluechanged', handleNotifications);
-                 console.log("b");
-                 const descriptor1 = Object.getOwnPropertyDescriptor(characteristic, '00002901-0000-1000-8000-00805f9b34fb');
-                 console.log("c");
-                 console.log(descriptor1.value.getUint8(0));
-                 console.log("d");
                });
-            }   
-          })
-          .then(value => {
-            let batteryLevel = value.getUint8(0);
-            console.log(`> バッテリーレベルは${batteryLevel}%です`);
+            }       
           })
           .catch(error =>{
             console.log("Error: " + error);
