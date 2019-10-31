@@ -92,8 +92,7 @@
         if(event.target.uuid === XAxisUuid){
           console.log("2: ");
           console.log(event.target.value.getInt8(0));
-          x = event.target.value;
-          v = perseInt(x,16);
+          x = event.target.value.getInt8(0);
         } 
         console.log("3: ");
         gaccel.addRow([new Date(), x]);
