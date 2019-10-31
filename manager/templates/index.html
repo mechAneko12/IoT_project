@@ -12,8 +12,8 @@
     <script>
       var XAxisCharacteristic;
       var ax;
-      let serviceUuid = "0000dfb0-0000-1000-8000-00805f9b34fb";
-      let XAxisUuid = "0000dfb1-0000-1000-8000-00805f9b34fb";
+      let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
+      let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawAccelChart);
       var accOptions = {
@@ -67,14 +67,14 @@
               console.log(characteristic.value);
               console.log("value");
                */
-               return characteristic.getCharacteristic('00002901-0000-1000-8000-00805f9b34fb');
+               //return characteristic.getCharacteristic('00002901-0000-1000-8000-00805f9b34fb');
             }
 
           })
-
+          /*
           .then(descriptor =>{
             descriptor.writeValue(True);
-          });/*
+          });
           .catch(error =>{
             console.log("Error: " + error);
           });*/
