@@ -88,15 +88,16 @@
         });
       }
       function handleNotifications(event) {
-        console.log("Error1: ");
+        console.log("1: ");
         if(event.target.uuid === XAxisUuid){
-          console.log("Error2: ");
-          ax = event.target.value.getFloat32(0,true);
+          console.log("2: ");
+          x = event.target.value;
+          v = perseInt(x,16);
         } 
-        console.log("Erro3r: ");
-        gaccel.addRow([new Date(), ax]);
-        console.log("Erro3r: ");
-        console.log(ax);
+        console.log("3: ");
+        gaccel.addRow([new Date(), x]);
+        console.log("4: ");
+        console.log(x);
         if(gaccel.getNumberOfRows() > 100){
           gaccel.removeRow(0);
         }
