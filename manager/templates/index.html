@@ -7,7 +7,7 @@
   <body>
     <p>BLE</p>
     <p><form><button id="startNotifications">Start notifications</button></form></p>
-    <div id="accelerometer" style="width:100%; height:200px;"></div>
+    <div id="accelerometer" style="width:80%; height:200px;"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
       var XAxisCharacteristic;
@@ -24,6 +24,10 @@
       };
       var gaccel, chart;
       function beginBLE(){
+        window.addEventListener('devicelight', function(event) {
+          console.log(event.value + 'lux');
+        });
+
         // 接続するデバイスをある程度絞ってからAdvertisingが動作する
         //let filters = [];
         //filters.push({services: [serviceUuid]});
@@ -71,13 +75,7 @@
             }
 
           })
-          /*
-          .then(descriptor =>{
-            descriptor.writeValue(True);
-          });
-          .catch(error =>{
-            console.log("Error: " + error);
-          });*/
+          
       }
       function handleCharacteristic(characteristic) {
         return characteristic.startNotifications()
