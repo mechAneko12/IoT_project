@@ -26,11 +26,6 @@
       };
       var gaccel, chart;
 
-      const als = new AmbientLightSensor();
-      als.start();
-      als.addEventListener('reading', () => {
-        console.log(als.illuminance);
-      });
       function beginBLE(){
         
 
