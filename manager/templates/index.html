@@ -24,8 +24,15 @@
         vAxis: { minValue: -1000, maxValue: 1000 },
       };
       var gaccel, chart;
-      window.addEventListener('devicelight', function(event) {
-        console.log(event.value + 'lux');
+
+      const sensor = new AmbientLightSensor();
+      // 有効になった時の動作
+      sensor.addEventListener('activate', (event) => {
+        console.log('AmbientLightSensorは有効になりました。');
+      });
+      // 値が変わった時の動作
+      sensor.addEventListener('reading', (event) => {
+        console.log(`${sensor.illuminance}ルクス`);
       });
       function beginBLE(){
         
