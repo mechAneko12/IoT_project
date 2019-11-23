@@ -25,14 +25,10 @@
       };
       var gaccel, chart;
 
-      const sensor = new AmbientLightSensor();
-      // 有効になった時の動作
-      sensor.addEventListener('activate', (event) => {
-        console.log('AmbientLightSensorは有効になりました。');
-      });
-      // 値が変わった時の動作
-      sensor.addEventListener('reading', (event) => {
-        console.log(`${sensor.illuminance}ルクス`);
+      const als = new AmbientLightSensor();
+      als.start();
+      als.addEventListener('reading', () => {
+        console.log(als.illuminance);
       });
       function beginBLE(){
         
