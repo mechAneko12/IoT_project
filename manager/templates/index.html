@@ -23,10 +23,11 @@
         vAxis: { minValue: -1000, maxValue: 1000 },
       };
       var gaccel, chart;
+      window.addEventListener('devicelight', function(event) {
+        console.log(event.value + 'lux');
+      });
       function beginBLE(){
-        window.addEventListener('devicelight', function(event) {
-          console.log(event.value + 'lux');
-        });
+        
 
         // 接続するデバイスをある程度絞ってからAdvertisingが動作する
         //let filters = [];
