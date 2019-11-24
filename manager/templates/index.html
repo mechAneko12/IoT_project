@@ -13,6 +13,36 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
       var url = new URL("https://addition-entities.azurewebsites.net/api/add?code=1k8lo9rufOLAhEMxc4opPaWAF6ezfS7xaSe7V0cnimAMLa2EwHmpZA==");
+      var param = [{
+        'recId': 20191124,
+        'hour': 13,
+        'name': "math",
+        'temp_outside': 4,
+        'temp_max': 5,
+        'temp_min': 6,
+        'temp_gap': 7,
+        'temp_self': 8,
+        'weather': 9,
+        'Sunday': 10,
+        'Monday': 11,
+        'Tuesday': 12,
+        'Wednesday': 13,
+        'Thursday': 14,
+        'Friday': 15,
+        'Saturday': 16,
+        'timezone_00_03': 17,
+        'timezone_03_06': 18,
+        'timezone_06_09': 0,
+        'timezone_09_12': 0,
+        'timezone_12_15': 1,
+        'timezone_15_18': 0,
+        'timezone_18_21': 0,
+        'timezone_21_24': 0,
+        'work_time': 50,
+        'actual_work_time': 40,
+        'efficiency': 0.80
+      }];
+      await url({}, param);
       var XAxisCharacteristic;
       var ax;
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
