@@ -1,3 +1,4 @@
+$node 
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
     <div id="accelerometer" style="width:80%; height:200px;"></div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       var param = {
         'recId': 20191124,
@@ -42,7 +43,7 @@
         'actual_work_time': 40,
         'efficiency': 0.80
       };
-      const axios = require('axios');
+      //const axios = require('axios');
       axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       var XAxisCharacteristic;
       var ax;
