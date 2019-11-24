@@ -44,10 +44,22 @@
         'efficiency': 0.80
       };
       //const axios = require('axios');
-      function app(){
+      function add(){
         return axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       }
-      app();
+      const app = new Vue({
+        el: '#app',
+        data: {
+            info: null,
+            userid: null
+        },
+        methods: {
+          add: function () {
+            add();
+          }
+        }
+      });
+
       var XAxisCharacteristic;
       var ax;
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
