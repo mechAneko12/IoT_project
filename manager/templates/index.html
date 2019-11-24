@@ -45,6 +45,7 @@
       };
       //const axios = require('axios');
       function add(){
+        console.log("fin");
         return axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       }
       const app = new Vue({
@@ -53,12 +54,11 @@
             info: null,
             userid: null
         },
-        methods: {
-          add: function () {
-            add();
-            console.log("fin");
-          }
-        }
+        //methods: {
+         // add: function () {
+            add()
+        //  }
+        //}
       });
       console.log("fin2");
 
