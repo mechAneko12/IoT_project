@@ -32,7 +32,7 @@
         'Friday': 15,
         'Saturday': 16,
         'timezone_00_03': 17,
-        'timezone_03_06': 18,
+        'timezone_03_06': 19,
         'timezone_06_09': 0,
         'timezone_09_12': 0,
         'timezone_12_15': 1,
@@ -49,19 +49,7 @@
         return axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       }
       add();
-      const app = new Vue({
-        el: '#app',
-        data: {
-            info: null,
-            userid: null
-        },
-        methods: {
-          add: function () {
-            add();
-            console.log("fin");
-          }
-        }
-      });
+      
       console.log("fin2");
 
       var XAxisCharacteristic;
