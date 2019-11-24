@@ -1,4 +1,3 @@
-$node 
 <!doctype html>
 <html lang="en">
   <head>
@@ -45,7 +44,7 @@ $node
         'efficiency': 0.80
       };
       //const axios = require('axios');
-      axios.post("https://addition-entities.azurewebsites.net/api/add",param);
+      await axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       var XAxisCharacteristic;
       var ax;
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
