@@ -18,13 +18,14 @@
  
       request.open('GET', 'https://addition-entities.azurewebsites.net/api/retrieve', true);
       request.responseType = 'json';
+      request.send();
 
       request.onload = function () {
         var data = this.response;
         console.log(data);
       };
 
-      request.send();
+      
 
       var param = {
         'RowKey': 20191124,
