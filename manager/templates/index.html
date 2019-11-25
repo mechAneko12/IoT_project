@@ -20,7 +20,7 @@
       };
       var request = new XMLHttpRequest();
  
-      request.open('POST', 'https://addition-entities.azurewebsites.net/api/retrieve', true);
+      request.open('GET', 'https://addition-entities.azurewebsites.net/api/retrieve', true);
       request.responseType = 'json';
 
       request.onload = function () {
@@ -28,7 +28,7 @@
         console.log(data);
       };
 
-      request.send(json);
+      request.send();
 
 
       var param = {
