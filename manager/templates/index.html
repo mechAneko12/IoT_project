@@ -14,21 +14,6 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      var json = {
-        PartitionKey: '18',
-        RowKey: '20191124'
-      };
-      var request = new XMLHttpRequest();
- 
-      request.open('GET', 'https://addition-entities.azurewebsites.net/api/retrieve', true);
-      request.responseType = 'json';
-
-      request.onload = function () {
-        var data = this.response;
-        console.log(data);
-      };
-
-      request.send();
 
 
       var param = {
