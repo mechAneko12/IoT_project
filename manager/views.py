@@ -4,3 +4,7 @@ from django.shortcuts import render
 def index(request):
   template_name = "index.html" # templates以下のパスを書く
   return render(request,template_name)
+
+def table(request):
+    return render(request, 'table.html', {})
+
