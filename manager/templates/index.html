@@ -19,7 +19,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       //天気--------------------------------------------
-      var weather = 0
+      var weather = 0;
+      var temp_outside = 0;
       $(document).ready(function () {
         //'use strict'
 
@@ -59,6 +60,7 @@
                         } else if (data.weather[0].main === "Snow") {
                             weather = -2;
                         }
+                        temp_outside = Math.floor((data.main.temp - 273.15) * 10) / 10;
                         console.log(weather);
                         console.log("トウキョウじゃない天気");
                         
@@ -100,6 +102,7 @@
                     } else if (data.weather[0].main === "Snow") {
                         weather = -2;
                     }
+                    temp_outside = Math.floor((data.main.temp - 273.15) * 10) / 10;
                     console.log(weather);
                     console.log("トウキョウ天気");
                 }
@@ -200,7 +203,12 @@
       console.log("fin2");
 
       var XAxisCharacteristic;
-      var ax;
+      var str = "";
+      var temp_gap = 0;
+      var temp_max = 0;
+      var temp_min = 100;
+      var temp_outside = 36;
+
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
       google.charts.load('current', {'packages':['line']});
@@ -209,7 +217,7 @@
         title: '',
         // curveType: 'function',
         legend: { position: 'bottom' },
-        vAxis: { minValue: -1000, maxValue: 1000 },
+        vAxis: { minValue: -1000, maxValue: 2000 },
       };
       var gaccel, chart;
 
@@ -235,29 +243,15 @@
             // Get all characteristics that match this UUID.
             return service.getCharacteristic(XAxisUuid);
             }
-          })/*
-          .then(characteristic => {
-            return characteristic.readValue();
           })
-          .then(value => {
-            let batteryLevel = value.getUint8(0);
-            console.log(`> バッテリーレベルは${batteryLevel}%です`);
-          })*/
           .then(characteristic => {
             // characteristicsが単数の場合はcharacteristicとなる
-            //console.log("Error1.5: ");
             if(characteristic.uuid === XAxisUuid){
               handleCharacteristic(characteristic);
-              //console.log("Error2: ");
               /*
-              console.log(characteristic);
               characteristic.addEventListener('characteristicvaluechanged', handleNotifications)
-              console.log("XAxis notification started");
                
               characteristic.startNotifications();
-              console.log("notify");
-              console.log(characteristic.value);
-              console.log("value");
                */
                //return characteristic.getCharacteristic('00002901-0000-1000-8000-00805f9b34fb');
             }
@@ -273,19 +267,19 @@
         });
       }
       function handleNotifications(event) {
-        console.log("1: ");
         if(event.target.uuid === XAxisUuid){
           console.log("2: ");
           console.log(event.target.value);
           console.log(typeof event.target.value);
           console.log(String.fromCharCode(event.target.value.getInt8(0)));
           x = String.fromCharCode(event.target.value.getInt8(0));
-
+          if (x=="c"){
+            
+          }
 
 
 
         } 
-        console.log("3: ");
         gaccel.addRow([new Date(), x]);
         console.log("4: ");
         console.log(x);
