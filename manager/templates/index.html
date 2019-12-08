@@ -168,6 +168,7 @@
         'RowKey': 20191124,
         'PartitionKey': 18,
         'name': "math",
+        'lux' : 12,
         'temp_outside': 4,
         'temp_max': 5,
         'temp_min': 6,
@@ -207,7 +208,9 @@
       var temp_gap = 0;
       var temp_max = 0;
       var temp_min = 100;
-      var temp_outside = 36;
+      var temp_self = 36;
+      var work_time = 0;
+      var actual_work_time = 0;
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
@@ -273,8 +276,30 @@
           console.log(typeof event.target.value);
           console.log(String.fromCharCode(event.target.value.getInt8(0)));
           x = String.fromCharCode(event.target.value.getInt8(0));
-          if (x=="c"){
+          if (x==="c"){
+            if(temp_max <= Number(str)){
+              temp_max = Number(str);
+              str = "";
+            }
+            if (temp_min >= Number(str)){
+              temp_min = Number(str);
+              str = "";
+            }
             
+          } else if(x==="b"){
+            temp_self = Number(str);
+            str = "";
+
+          }else if(x === "y"){
+            if (Number(str)>= 450){
+              actual_work_time += 3;
+            }else{
+
+            }
+            work_time += 3;
+            str = "";
+          }else{
+            str = str + x;
           }
 
 
