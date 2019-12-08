@@ -18,6 +18,85 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      //天気--------------------------------------------
+      var weather = 0
+      $(document).ready(function () {
+        'use strict'
+
+        const APIKEY = "b0fca0711b8aefd394528920f6ba428d";
+
+        //翌日9時のデータの場所を割り出す
+        const date = new Date();
+        const nowHour = date.getHours();
+        
+        //現在位置の取得ができるかどうか
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+
+            // 現在位置の取得に成功した場合
+            function success(position) {
+                const positionData = position.coords;
+
+                //緯度経度の取得と表示
+                const lat = positionData.latitude;
+                const lon = positionData.longitude;
+                
+
+                //現在の天気データを呼び出し
+                $.ajax({
+                    url: "http://api.openweathermap.org/data/2.5/weather",
+                    dataType: "jsonp",
+                    data: "lat=" + lat + "&lon=" + lon + "&appid=" + APIKEY,
+                    //天気データ呼び出し成功時の挙動
+                    success: function (data) {                
+                        if (data.weather[0].main === "Clear") {
+                            weather = 2;
+                        } else if (data.weather[0].main === "Rain") {
+                            weather = -1;
+                        } else if (data.weather[0].main === "Clouds") {
+                            weather = 1;
+                        } else if (data.weather[0].main === "Snow") {
+                            weather = -2;
+                        }
+                        
+                    }
+                });
+              }
+
+              //現在位置の取得に失敗した場合
+              function error(error) {
+                  TokyoWeather();
+
+              }
+        } else {
+            TokyoWeather();
+        }
+        console.log(weather);
+
+        function TokyoWeather() {
+
+            //現在の天気データ呼び出し
+            $.ajax({
+                url: "http://api.openweathermap.org/data/2.5/weather",
+                dataType: "jsonp",
+                data: "q=Tokyo,jp&appid=" + APIKEY,
+                //天気データ呼び出し成功時の挙動
+                success: function (data) {
+                    if (data.weather[0].main === "Sunny" || data.weather[0].main === "Clear") {
+                        weather = 2;
+                    } else if (data.weather[0].main === "Rain") {
+                        weather = -1;
+                    } else if (data.weather[0].main === "Clouds") {
+                       weather = 1;
+                    } else if (data.weather[0].main === "Snow") {
+                        weather = -2;
+                    }
+                }
+            });
+        }
+      }());
+
+      //照度------------------------------------------  
       var lux = 0
       navigator.permissions.query({name: 'ambient-light-sensor'})
           .then((result) => {
@@ -56,6 +135,7 @@
             // 読み取り停止
             //sensor.stop();
       });
+
       /*
       var request = new XMLHttpRequest();
  
