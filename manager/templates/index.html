@@ -128,7 +128,7 @@
             // 値が変わった時の動作
             sensor.addEventListener('reading', (event) => {
               console.log(`${sensor.illuminance}ルクス`);
-              lux = sensor.illuminance;
+              lux = Math.round(sensor.illuminance * 10)/10;
               console.log(lux);
               sensor.stop();
             });
