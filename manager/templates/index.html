@@ -270,7 +270,6 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          console.log(characteristic.value);
         });
       }
       function handleNotifications(event) {
@@ -279,8 +278,8 @@
           console.log("2: ");
           console.log(event.target.value);
           console.log(typeof event.target.value);
-          console.log(event.target.value.getInt8(0));
-          x = event.target.value.getInt8(0);
+          console.log(String.fromCharCode(event.target.value.getInt8(0)));
+          x = String.fromCharCode(event.target.value.getInt8(0));
 
 
 
