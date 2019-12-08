@@ -44,7 +44,7 @@
 
                 //現在の天気データを呼び出し
                 $.ajax({
-                    url: "http://api.openweathermap.org/data/2.5/weather",
+                    url: "api.openweathermap.org/data/2.5/weather",
                     dataType: "jsonp",
                     data: "lat=" + lat + "&lon=" + lon + "&appid=" + APIKEY,
                     //天気データ呼び出し成功時の挙動
