@@ -2,18 +2,60 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
     
     <title>Smart Sharp Pencil App</title>
   </head>
   <body>
     <p>BLE</p>
     <p><form><button id="startNotifications">Start notifications</button></form></p>
+    <div class="contents margin">
+      <button id="scan" class="button">sample</button>
+    </div>
     <div id="accelerometer" style="width:80%; height:200px;"></div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      var lux = 0
+      navigator.permissions.query({name: 'ambient-light-sensor'})
+          .then((result) => {
+            if(result.state === 'granted') {
+              console.log('AmbientLightSensorは利用可能です。');
+            } else if(result.state === 'denied') {
+              console.log('AmbientLightSensorは利用不可能です。');
+            } else if (result.state === 'prompt') {
+              console.log('AmbientLightSensorの利用には許可が必要です。');
+            }
+
+            // センサオブジェクトをnewする
+            const sensor = new AmbientLightSensor();
+
+            // 有効になった時の動作
+            sensor.addEventListener('activate', (event) => {
+              console.log('AmbientLightSensorは有効になりました。');
+            });
+
+            // 値が変わった時の動作
+            sensor.addEventListener('reading', (event) => {
+              console.log(`${sensor.illuminance}ルクス`);
+              lux = sensor.illuminance;
+              console.log(lux);
+              sensor.stop();
+            });
+
+            // エラーの時の動作
+            sensor.addEventListener('error', (event) => {
+              console.log(event.error);
+            });
+
+            // 読み取り開始
+            sensor.start();
+
+            // 読み取り停止
+            //sensor.stop();
+      });
       /*
       var request = new XMLHttpRequest();
  
@@ -162,6 +204,9 @@
         }
         chart.draw(gaccel, accOptions);
       }
+      document.querySelector('#scan').addEventListener('click', function(event) {
+        console.log("submit");
+      });
       document.querySelector('#startNotifications').addEventListener('click', function(event) {
         event.stopPropagation();
         event.preventDefault();
