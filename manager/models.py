@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Data(model.Model):
+class Data(models.Model):
     date = models.DateTimeField()
     name = models.CharField()
     temp_outside = models.FloatField()
