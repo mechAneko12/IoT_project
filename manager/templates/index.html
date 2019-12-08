@@ -28,6 +28,7 @@
         //翌日9時のデータの場所を割り出す
         const date = new Date();
         const nowHour = date.getHours();
+
         
         //現在位置の取得ができるかどうか
         if (navigator.geolocation) {
@@ -44,7 +45,7 @@
 
                 //現在の天気データを呼び出し
                 $.ajax({
-                    url: "api.openweathermap.org/data/2.5/weather",
+                    url: "//api.openweathermap.org/data/2.5/weather",
                     dataType: "jsonp",
                     data: "lat=" + lat + "&lon=" + lon + "&appid=" + APIKEY,
                     //天気データ呼び出し成功時の挙動
