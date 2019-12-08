@@ -1,3 +1,31 @@
 from django.db import models
 
 # Create your models here.
+
+class Data(model.Model):
+    date = models.DateTimeField()
+    name = models.CharField()
+    temp_outside = models.FloatField()
+    temp_max = models.FloatField()
+    temp_min = models.FloatField()
+    temp_gap = models.FloatField()
+    temp_self = models.FloatField()
+    weather = models.IntegerField()
+    Sunday = models.IntegerField()
+    Monday = models.IntegerField()
+    Tuesday = models.IntegerField()
+    Wednesday = models.IntegerField()
+    Thursday = models.IntegerField()
+    Friday = models.IntegerField()
+    Saturday = models.IntegerField()
+    timezone_00_03 = models.IntegerField()
+    timezone_03_06 = models.IntegerField()
+    timezone_06_09 = models.IntegerField()
+    timezone_09_12 = models.IntegerField()
+    timezone_12_15 = models.IntegerField()
+    timezone_15_18 = models.IntegerField()
+    timezone_18_21 = models.IntegerField()
+    timezone_21_24 = models.IntegerField()
+    work_time = models.IntegerField()
+    actual_work_time = models.IntegerField()
+    efficiency = models.FloatField()
