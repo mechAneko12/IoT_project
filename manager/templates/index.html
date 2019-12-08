@@ -211,6 +211,7 @@
       var temp_self = 36;
       var work_time = 0;
       var actual_work_time = 0;
+      var efficiency = 0;
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
@@ -279,10 +280,12 @@
           if (x==="c"){
             if(temp_max <= Number(str)){
               temp_max = Number(str);
+              temp_gap = temp_max - temp_min;
               str = "";
             }
             if (temp_min >= Number(str)){
               temp_min = Number(str);
+              temp_gap = temp_max - temp_min;
               str = "";
             }
             
@@ -298,6 +301,7 @@
             }
             work_time += 3;
             str = "";
+            efficiency = actual_work_time/work_time;
           }else{
             str = str + x;
           }
@@ -305,7 +309,7 @@
 
 
         } 
-        gaccel.addRow([new Date(), x]);
+        gaccel.addRow([new Date(), Number(str)]);
         console.log("4: ");
         console.log(x);
         if(gaccel.getNumberOfRows() > 100){
