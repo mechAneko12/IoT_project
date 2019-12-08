@@ -59,7 +59,8 @@
                         } else if (data.weather[0].main === "Snow") {
                             weather = -2;
                         }
-                        console.log("トウキョウ天気");
+                        console.log(weather);
+                        console.log("トウキョウじゃない天気");
                         
                     }
                 });
@@ -68,11 +69,13 @@
               //現在位置の取得に失敗した場合
               function error(error) {
                   TokyoWeather();
+                  console.log(weather);
                   console.log("トウキョウ天気");
 
               }
         } else {
             TokyoWeather();
+            console.log(weather);
             console.log("トウキョウ天気");
         }
         console.log(weather);
@@ -83,7 +86,7 @@
 
             //現在の天気データ呼び出し
             $.ajax({
-                url: "http://api.openweathermap.org/data/2.5/weather",
+                url: "//api.openweathermap.org/data/2.5/weather",
                 dataType: "jsonp",
                 data: "q=Tokyo,jp&appid=" + APIKEY,
                 //天気データ呼び出し成功時の挙動
