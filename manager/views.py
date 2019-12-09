@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http.response import JsonResponse
+from django.http import HttpResponse
 from .models import Data
 import datetime
 from django.core import serializers
@@ -14,6 +15,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
+  HttpResponse(json.dumps({'name': name}), content_type="application/json")
   
   d = {'id': '1'}
   
