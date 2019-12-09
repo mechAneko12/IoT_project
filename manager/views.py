@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Data
 import datetime
+from django.core import serializers
 
 # Create your views here.
 def index(request):
@@ -13,6 +14,7 @@ def table(request):
 
 def sql_post(request):
   d = {'id': 1}
+  return serializers.serialize("json", d)
   return JsonResponse(d)
 
   date = datetime.datetime.now()
