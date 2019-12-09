@@ -63,8 +63,8 @@ def sql_post(request):
                               work_time = work_time,
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
-    d = {
-        'id': data.id,
-    }
-    return JsonResponse(d)
+  d = {
+      'id': data.id,
+  }
+  return JsonResponse(d)
 
