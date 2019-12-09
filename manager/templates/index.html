@@ -446,10 +446,12 @@
                 console.log("success");
             }*/
             
-        }).done( response => {/*
-            res = $.parseJSON(response);
+        }).done( response => {
+            console.log(response);
+            res = $.parseJSON(response.message);
             id = res.id;
-            console.log(id);*/
+            console.log(res);
+            console.log(id);
             console.log(response);
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
