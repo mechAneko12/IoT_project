@@ -18,6 +18,25 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      const id = -1;
+
+      const date = new Date();
+      const year = date.getFullYear() ;	// 年
+      const month = date.getMonth() + 1 ;	// 月
+      const day = date.getDate() ;	// 日
+      const hour = date.getHours();
+      const minute = date.getMinutes() ;	// 分
+      const second = date.getSeconds() ;	// 秒
+      const dayOfWeek = date.getDay() ;	// 曜日(数値)
+
+      var week = [0,0,0,0,0,0,0]
+      var timezone = [0,0,0,0,0,0,0,0];
+      week[dayOfWeek] = 1;
+      var timez_hour = Math.round(hour/3);
+      timezone[timez_hour] = 1;
+      console.log(week,timezone)
+      
+
       //天気--------------------------------------------
       var weather = 0;
       var temp_outside = 0;
@@ -342,7 +361,7 @@
       });
 
       function add_sql(){
-
+        //id =
       }
 
       function update_sql(){
