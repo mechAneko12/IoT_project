@@ -231,7 +231,7 @@
       var actual_work_time = 0;
       var efficiency = 0;
 
-      var second = 0;
+      var sec = 0;
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
@@ -329,10 +329,10 @@
 
             }
             work_time += 3;
-            if(second < 60){
-              second += 3;
+            if(sec < 60){
+              sec += 3;
             }else{
-              second = 0;
+              sec = 0;
               update_sql();
             }
             str = "";
