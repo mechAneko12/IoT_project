@@ -291,7 +291,7 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,time_zone, work_time, actual_work_time, efficiency);
+          add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         });
       }
       function handleNotifications(event) {
@@ -361,7 +361,7 @@
         event.preventDefault();
         console.log("Begin BLE scanning");
 
-        add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,time_zone, work_time, actual_work_time, efficiency);
+        add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         
         beginBLE();
       });
