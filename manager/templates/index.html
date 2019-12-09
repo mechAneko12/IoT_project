@@ -32,7 +32,7 @@
       var week = [0,0,0,0,0,0,0]
       var timezone = [0,0,0,0,0,0,0,0];
       week[dayOfWeek] = 1;
-      var timez_hour = Math.round(hour/3);
+      var timez_hour = Math.floor(hour/3);
       timezone[timez_hour] = 1;
       console.log(week,timezone,hour)
 
