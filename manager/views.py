@@ -12,7 +12,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
-  d = {"id": 1}
+  d = {'id': 1}
   return JsonResponse(d)
 
   date = datetime.datetime.now()
