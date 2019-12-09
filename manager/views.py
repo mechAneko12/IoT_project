@@ -13,8 +13,9 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
+  if request.method == 'GET':
+        return JsonResponse({})
   d = {'id': 1}
-  return serializers.serialize("json", d)
   return JsonResponse(d)
 
   date = datetime.datetime.now()
