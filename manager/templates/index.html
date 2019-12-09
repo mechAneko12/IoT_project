@@ -447,9 +447,10 @@
             }*/
             
         }).done( response => {
-            id = response.id;
+            res = $.parseJSON(response);
+            id = res.id;
             console.log(id);
-            console.log(response);
+            console.log(res);
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
                     alert('ファイルの取得に失敗しました。');
