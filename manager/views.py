@@ -18,7 +18,7 @@ def sql_post(request):
         return JsonResponse({})
   d = {'id': 1}
   
-  return json.dumps(d)
+  return JsonResponse(d)
 
   date = datetime.datetime.now()
   name = request.POST.get('name')
