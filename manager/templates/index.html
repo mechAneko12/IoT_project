@@ -224,6 +224,7 @@
       
 
       var XAxisCharacteristic;
+
       var str = "";
       var temp_gap = 0;
       var temp_max = 0;
@@ -290,7 +291,7 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          add_sql();
+          add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,time_zone, work_time, actual_work_time, efficiency);
         });
       }
       function handleNotifications(event) {
@@ -362,7 +363,44 @@
         beginBLE();
       });
 
-      function add_sql(){
+      function add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,time_zone, work_time, actual_work_time, efficiency){
+        $.ajax({
+            'url': '{% url "sql_post" %}',
+            'type': 'POST',
+            'data': {
+              'name': name,
+              'lux' : lux,
+              'temp_outside': temp_outside,
+              'temp_max': temp_max,
+              'temp_min': temp_min,
+              'temp_gap': temp_gap,
+              'temp_self': temp_self,
+              'weather': weather,
+              'Sunday': week[0],
+              'Monday': week[1],
+              'Tuesday': week[2],
+              'Wednesday': week[3],
+              'Thursday': week[4],
+              'Friday': week[5],
+              'Saturday': week[6],
+              'timezone_00_03': timezone[0],
+              'timezone_03_06': timezone[1],
+              'timezone_06_09': timezone[2],
+              'timezone_09_12': timezone[3],
+              'timezone_12_15': timezone[4],
+              'timezone_15_18': timezone[5],
+              'timezone_18_21': timezone[6],
+              'timezone_21_24': timezone[7],
+              'work_time': work_time,
+              'actual_work_time': actual_work_time,
+              'efficiency': efficiency,
+              csrfmiddlewaretoken: '{{ csrf_token }}' 
+            },
+            'dataType': 'json'
+        }).done( response => {
+            id = response.id;
+            console.log(id);
+        });
         //id =
       }
 
@@ -380,9 +418,7 @@
       }
     </script>
     <ul>
-        <li><a href="{% url 'table' %}">イベント一覧</a></li>
-        <li>リンクB</li>
-        <li>リンクC</li>
+        <li><a href="{% url 'table' %}">学習記録</a></li>
     </ul>
   </body>
 </html>
