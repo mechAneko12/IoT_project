@@ -14,8 +14,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
-  if request.method == 'GET':
-        return JsonResponse({})
+  
   d = {'id': 1}
   
   return JsonResponse(d)
