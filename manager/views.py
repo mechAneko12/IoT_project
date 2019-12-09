@@ -19,6 +19,7 @@ def sql_post(request):
   d = {'id': 1}
   
   return JsonResponse(d)
+  '''
 
   date = datetime.datetime.now()
   name = request.POST.get('name')
@@ -78,4 +79,4 @@ def sql_post(request):
       'id': data.id,
   }
   return JsonResponse(d)
-
+  '''
