@@ -15,11 +15,9 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
-  return HttpResponse(json.dumps('{"id": 1}'), content_type="application/json")
+  d = str({"id": "1"})
   
-  d = {"id": "1"}
-  
-  return JsonResponse(d)
+  return HttpResponse(json.dumps(d), content_type="application/json")
   '''
 
   date = datetime.datetime.now()

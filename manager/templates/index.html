@@ -448,8 +448,8 @@
             
         }).done( response => {
             console.log(response);
-            console.log(response.message);
-            res = $.parseJSON(response.message);
+            console.log(response.id);
+            res = $.parseJSON(response);
             id = res.id;
             console.log(res);
             console.log(id);
