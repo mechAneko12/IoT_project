@@ -15,7 +15,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
-  HttpResponse(json.dumps({'name': name}), content_type="application/json")
+  return HttpResponse(json.dumps({'name': name}), content_type="application/json")
   
   d = {'id': '1'}
   
