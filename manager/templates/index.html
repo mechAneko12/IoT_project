@@ -372,6 +372,7 @@
             type: 'POST',
             headers:{'X-CSRFToken': '{{csrf_token}}'},
             dataType: 'json',
+            contentType: 'application/json',
             data: {
               'name': name,
               'lux' : lux,
