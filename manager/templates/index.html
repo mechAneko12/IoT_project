@@ -368,9 +368,9 @@
 
       function add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
         $.ajax({
-            'url': '{% url "sql_post" %}',
-            'type': 'POST',
-            'data': {
+            url: '{% url "sql_post" %}',
+            type: 'POST',
+            data: {
               'name': name,
               'lux' : lux,
               'temp_outside': temp_outside,
@@ -399,8 +399,8 @@
               'efficiency': efficiency,
               //'csrfmiddlewaretoken': '{{ csrf_token }}' 
             },
-            'headers':{'X-CSRFToken': '{{csrf_token}}'},
-            'dataType': 'json'
+            headers:{'X-CSRFToken': '{{csrf_token}}'},
+            dataType: 'json'
         }).done( response => {
             id = response.id;
             console.log(id);
