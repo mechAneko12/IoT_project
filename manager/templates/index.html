@@ -397,7 +397,7 @@
 
       function add_sql(lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
         $.ajax({
-            url: '{% url "sql_post" %}',
+            url: '/sql_post/',
             type: 'POST',
             //headers:{'X-CSRFToken': '{{csrf_token}}'},
             beforeSend: function(xhr, settings) {
