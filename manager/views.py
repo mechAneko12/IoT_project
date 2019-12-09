@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from .models import Data
 import datetime
 from django.core import serializers
+import json
 
 # Create your views here.
 def index(request):
@@ -17,7 +18,7 @@ def sql_post(request):
         return JsonResponse({})
   d = {'id': 1}
   
-  return JsonResponse(d)
+  return json.dumps(d)
 
   date = datetime.datetime.now()
   name = request.POST.get('name')
