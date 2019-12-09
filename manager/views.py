@@ -15,7 +15,7 @@ def table(request):
 
 def sql_post(request):
   
-  d = {'id': ''1'}
+  d = {'id': '1'}
   
   return JsonResponse(d)
   '''
