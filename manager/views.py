@@ -15,6 +15,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_post(request):
+  '''
   return JsonResponse({"id": 1})
   d = str({"id": "1"})
   
@@ -76,7 +77,7 @@ def sql_post(request):
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
   d = {
-      'id': data.id,
+      "id": data.id
   }
   return JsonResponse(d)
-  '''
+  
