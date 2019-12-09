@@ -9,13 +9,14 @@ def index(request):
   return render(request,template_name)
 
 def table(request):
-  d = {
-      'id': '12345',
-  }
-  return JsonResponse(d)
     return render(request, 'table.html', {})
 
 def sql_post(request):
+  d = {
+      'id': '123456',
+  }
+  return JsonResponse(d)
+
   date = datetime.datetime.now()
   name = request.POST.get('name')
   lux = request.POST.get('lux')
