@@ -27,8 +27,8 @@
         const APIKEY = "b0fca0711b8aefd394528920f6ba428d";
 
         //翌日9時のデータの場所を割り出す
-        const date = new Date();
-        const nowHour = date.getHours();
+        //const date = new Date();
+        //const nowHour = date.getHours();
 
         
         //現在位置の取得ができるかどうか
@@ -201,7 +201,6 @@
       }
       add();*/
       
-      console.log("fin2");
 
       var XAxisCharacteristic;
       var str = "";
@@ -212,6 +211,8 @@
       var work_time = 0;
       var actual_work_time = 0;
       var efficiency = 0;
+
+      var second = 0;
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
@@ -268,6 +269,7 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
+          add_sql();
         });
       }
       function handleNotifications(event) {
@@ -280,12 +282,20 @@
           if (x==="c"){
             if(temp_max <= Number(str)){
               temp_max = Number(str);
-              temp_gap = temp_max - temp_min;
+              if(Math.abs(temp_outside-temp_max) >= Math.abs(temp_outside-temp_min)){
+                temp_gap = temp_max - temp_outside;
+              }else{
+                temp_gap = temp_outside - temp_min;
+              }
               str = "";
             }
             if (temp_min >= Number(str)){
               temp_min = Number(str);
-              temp_gap = temp_max - temp_min;
+              if(Math.abs(temp_outside-temp_max) >= Math.abs(temp_outside-temp_min)){
+                temp_gap = temp_max - temp_outside;
+              }else{
+                temp_gap = temp_outside - temp_min;
+              }
               str = "";
             }
             
@@ -300,6 +310,12 @@
 
             }
             work_time += 3;
+            if(second < 60){
+              second += 3;
+            }else{
+              second = 0;
+              update_sql();
+            }
             str = "";
             efficiency = actual_work_time/work_time;
           }else{
@@ -310,8 +326,6 @@
 
         } 
         gaccel.addRow([new Date(), temp_max]);
-        console.log("4: ");
-        console.log(x);
         if(gaccel.getNumberOfRows() > 100){
           gaccel.removeRow(0);
         }
@@ -326,6 +340,15 @@
         console.log("Begin BLE scanning");
         beginBLE();
       });
+
+      function add_sql(){
+
+      }
+
+      function update_sql(){
+
+      }
+
       function drawAccelChart() {
         gaccel = new google.visualization.DataTable();
         gaccel.addColumn('datetime', 'Time');
