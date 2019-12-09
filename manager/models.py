@@ -4,6 +4,7 @@ from django.db import models
 
 class Data(models.Model):
     date = models.DateTimeField()
+    date_str = models.CharField(max_length = 100)
     name = models.CharField(max_length = 100)
     lux = models.IntegerField()
     temp_outside = models.FloatField()

@@ -23,6 +23,7 @@ def sql_post(request):
   '''
 
   date = datetime.datetime.now()
+  date_str = request.POST.get('date_str')
   name = request.POST.get('name')
   lux = request.POST.get('lux')
   temp_outside = request.POST.get('temp_outside')
@@ -50,6 +51,7 @@ def sql_post(request):
   actual_work_time = request.POST.get('actual_work_time')
   efficiency = request.POST.get('efficiency')
   data = Data.objects.create(date = date,
+                              date_str = date_str,
                               name=name, 
                               lux = lux,
                               temp_outside = temp_outside,
