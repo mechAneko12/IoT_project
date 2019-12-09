@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from .models import Data
 
 # Create your views here.
 def index(request):
@@ -36,7 +37,7 @@ def sql_post(request):
   work_time = request.POST.get('work_time')
   actual_work_time = request.POST.get('actual_work_time')
   efficiency = request.POST.get('efficiency')
-  post = Post.objects.create(name=name, 
+  data = Data.objects.create(name=name, 
                               lux = lux,
                               temp_outside = temp_outside,
                               temp_max = temp_max,
@@ -63,7 +64,7 @@ def sql_post(request):
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
     d = {
-        'id': post.id,
+        'id': data.id,
     }
     return JsonResponse(d)
 
