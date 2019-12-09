@@ -439,7 +439,7 @@
             success: function(json_data) {   // 200 OK時
                 // JSON Arrayの先頭が成功フラグ、失敗の場合2番目がエラーメッセージ
                 if (!json_data[0]) {    // サーバが失敗を返した場合
-                    alert("Transaction error. " + json_data);
+                    alert("Transaction error. " + json_data[0]);
                     return;
                 }
                 // 成功時処理
