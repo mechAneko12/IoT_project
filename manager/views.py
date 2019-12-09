@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http.response import JsonResponse
 from .models import Data
 import datetime
 from django.core import serializers
