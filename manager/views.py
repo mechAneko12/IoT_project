@@ -9,6 +9,10 @@ def index(request):
   return render(request,template_name)
 
 def table(request):
+  d = {
+      'id': '12345',
+  }
+  return JsonResponse(d)
     return render(request, 'table.html', {})
 
 def sql_post(request):
