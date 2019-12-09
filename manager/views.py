@@ -16,6 +16,7 @@ def sql_post(request):
   if request.method == 'GET':
         return JsonResponse({})
   d = {'id': 1}
+  return serializers.serialize("json", d)
   return JsonResponse(d)
 
   date = datetime.datetime.now()
@@ -72,6 +73,8 @@ def sql_post(request):
                               work_time = work_time,
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
-  d = {'id': data.id}
+  d = {
+      'id': data.id,
+  }
   return JsonResponse(d)
 
