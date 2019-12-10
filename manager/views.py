@@ -141,7 +141,7 @@ def sql_update(request):
                               work_time = work_time,
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
-  d ={"id": 12}
+  d ={"id": data.id}
   return JsonResponse(d)
 
   '''
