@@ -455,8 +455,9 @@
             
         }).done( response => {
             console.log(response);
-            console.log(response.id);
-            return response.id;
+            console.log(response.content);
+            console.log(JSON.stringfy(response.content).id);
+            return response.conte;
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
                     alert('ファイルの取得に失敗しました。');
