@@ -518,11 +518,11 @@
               Id = json_data.id;
               //return json_data.id;
             }*/
-        }).done( response => {
-            console.log(response);
-            console.log(response.id);
-            console.log(typeof response.id);
-            return response;
+        }).done(function(data, textStatus, jqXHR) {
+            console.log(jqXHR);
+            console.log(jqXHR.responseJSON);
+            console.log(typeof jqXHR.responseJSON.id);
+            return jqXHR.responseJSON;
         });
       }
 
