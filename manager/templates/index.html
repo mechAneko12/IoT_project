@@ -364,7 +364,8 @@
         event.preventDefault();
         console.log("Begin BLE scanning");
 
-        add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
       });
@@ -440,7 +441,6 @@
               'work_time': work_time,
               'actual_work_time': actual_work_time,
               'efficiency': efficiency,
-              //'csrfmiddlewaretoken': '{{ csrf_token }}' 
             }/*,
             success: function(json_data) {   // 200 OK時
                 // JSON Arrayの先頭が成功フラグ、失敗の場合2番目がエラーメッセージ
@@ -468,8 +468,53 @@
         //id =
       }
 
-      function update_sql(){
-
+      function update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
+        $.ajax({
+            url: '/sql_post/',
+            type: 'POST',
+            //headers:{'X-CSRFToken': '{{csrf_token}}'},
+            beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+            },
+            dataType: 'json',
+            //contentType: 'application/json',
+            data: {
+              'id': id,
+              'date_str': date_str,
+              'name': name,
+              'lux' : lux,
+              'temp_outside': temp_outside,
+              'temp_max': temp_max,
+              'temp_min': temp_min,
+              'temp_gap': temp_gap,
+              'temp_self': temp_self,
+              'weather': weather,
+              'Sunday': week[0],
+              'Monday': week[1],
+              'Tuesday': week[2],
+              'Wednesday': week[3],
+              'Thursday': week[4],
+              'Friday': week[5],
+              'Saturday': week[6],
+              'timezone_00_03': timezone[0],
+              'timezone_03_06': timezone[1],
+              'timezone_06_09': timezone[2],
+              'timezone_09_12': timezone[3],
+              'timezone_12_15': timezone[4],
+              'timezone_15_18': timezone[5],
+              'timezone_18_21': timezone[6],
+              'timezone_21_24': timezone[7],
+              'work_time': work_time,
+              'actual_work_time': actual_work_time,
+              'efficiency': efficiency,
+            }
+        }).done( response => {
+            console.log(response);
+            console.log(response.id);
+            id = response.id;
+        });
       }
 
       function drawAccelChart() {

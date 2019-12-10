@@ -6,4 +6,5 @@ urlpatterns = [
   #path("",views.mainjs,name="main.js"),
   #path("",views.stylecss,name="style.css"),
   path("sql_post/", views.sql_post, name = "sql_post"),
+  path("sql_update/", views.sql_post, name = "sql_update"),
 ]
