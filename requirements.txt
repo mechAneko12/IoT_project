@@ -97,5 +97,4 @@ whitenoise==4.1.4
 widgetsnbextension==3.0.8
 win-unicode-console==0.5
 wrapt==1.11.2
-wxPython==4.0.6
 zope.interface==4.7.1
