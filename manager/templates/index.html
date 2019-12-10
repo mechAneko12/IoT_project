@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      var id = -1;
+      //var id = -1;
 
       const date = new Date();
       const year = date.getFullYear() ;	// 年
@@ -365,7 +365,7 @@
         console.log("Begin BLE scanning");
 
         //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-        id = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         console.log(typeof id);
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
@@ -513,9 +513,10 @@
               'efficiency': efficiency,
             },
             success: function(json_data) {   // 200 OK時
-              id = json_data.id;
+              var id = json_data.id;
               Id = json_data.id;
-              return json_data.id;
+              console.log(id);
+              //return json_data.id;
             }
         })/*.done( response => {
             console.log(response);
@@ -523,6 +524,7 @@
             console.log(typeof response.id);
             return response.id;
         })*/;
+        console.log(Id);
         return Id;
       }
 
