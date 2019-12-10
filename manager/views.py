@@ -113,7 +113,7 @@ def sql_update(request):
   work_time = request.POST.get('work_time')
   actual_work_time = request.POST.get('actual_work_time')
   efficiency = request.POST.get('efficiency')
-  data = Data.objects.get(id = Id).update(date = date,
+  data = Data.objects.filter(id = Id).update(date = date,
                               date_str = date_str,
                               name=name, 
                               lux = lux,
@@ -141,7 +141,7 @@ def sql_update(request):
                               work_time = work_time,
                               actual_work_time = actual_work_time,
                               efficiency =efficiency)
-  d ={"id": Id}
+  d ={"id": data.id}
   return JsonResponse(d)
 
   '''
