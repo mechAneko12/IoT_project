@@ -368,6 +368,12 @@
         response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         id = response.id;
         console.log(typeof id);
+        console.log(response);
+
+
+
+
+
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
       });
