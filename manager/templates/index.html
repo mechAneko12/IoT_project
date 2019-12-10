@@ -456,7 +456,6 @@
         }).done( response => {
             console.log(response);
             console.log(response.id);
-            console.log(JSON.stringfy(response).id);
             return response.id;
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
@@ -511,13 +510,16 @@
               'work_time': work_time,
               'actual_work_time': actual_work_time,
               'efficiency': efficiency,
+            },
+            success: function(json_data) {   // 200 OK時
+              return json_data.id;
             }
-        }).done( response => {
+        })/*.done( response => {
             console.log(response);
             console.log(response.id);
             console.log(typeof response.id);
             return response.id;
-        });
+        })*/;
       }
 
       function drawAccelChart() {
