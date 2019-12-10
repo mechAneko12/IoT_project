@@ -456,7 +456,7 @@
         }).done( response => {
             console.log(response);
             console.log(response.id);
-            console.log(JSON.stringfy(response.content).id);
+            console.log(JSON.stringfy(response).id);
             return response.id;
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
@@ -515,7 +515,7 @@
         }).done( response => {
             console.log(response);
             console.log(response.id);
-            return response.id;
+            return JSON.string(response).id;
         });
       }
 
