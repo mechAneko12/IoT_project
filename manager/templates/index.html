@@ -346,6 +346,7 @@
         var request = new XMLHttpRequest();
   
         request.open('POST', 'https://addition-entities.azurewebsites.net/api/insertorreplace', true);
+        request.setRequestHeader("Content-Type", "application/json")
         request.responseType = 'json';
         request.send(param);
 
