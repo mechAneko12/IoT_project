@@ -174,49 +174,6 @@
       });
 
       /*
-      var request = new XMLHttpRequest();
- 
-      request.open('GET', 'https://addition-entities.azurewebsites.net/api/retrieve', true);
-      request.responseType = 'json';
-      request.send();
-
-      request.onload = function () {
-        var data = this.response;
-        console.log(data);
-      };
-
-      
-
-      var param = {
-        'RowKey': 20191124,
-        'PartitionKey': 18,
-        'name': "math",
-        'lux' : 12,
-        'temp_outside': 4,
-        'temp_max': 5,
-        'temp_min': 6,
-        'temp_gap': 7,
-        'temp_self': 8,
-        'weather': 9,
-        'Sunday': 10,
-        'Monday': 11,
-        'Tuesday': 12,
-        'Wednesday': 13,
-        'Thursday': 14,
-        'Friday': 15,
-        'Saturday': 16,
-        'timezone_00_03': 17,
-        'timezone_03_06': 19,
-        'timezone_06_09': 0,
-        'timezone_09_12': 0,
-        'timezone_12_15': 1,
-        'timezone_15_18': 0,
-        'timezone_18_21': 0,
-        'timezone_21_24': 0,
-        'work_time': 50,
-        'actual_work_time': 40,
-        'efficiency': 0.80
-      };
       //axios.post("https://addition-entities.azurewebsites.net/api/add",param);
       
       function add(){
@@ -293,7 +250,8 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          add_sql(date_str, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+          add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+          azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         });
       }
       function handleNotifications(event) {
@@ -346,8 +304,6 @@
             str = str + x;
           }
 
-
-
         } 
         gaccel.addRow([new Date(), temp_max]);
         if(gaccel.getNumberOfRows() > 100){
@@ -355,6 +311,50 @@
         }
         chart.draw(gaccel, accOptions);
       }
+
+      function azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
+        var param = {
+          'PartitionKey': date_str,
+          'RowKey': hour,
+          'name': name,
+          'lux' : lux,
+          'temp_outside': temp_outside,
+          'temp_max': temp_max,
+          'temp_min': temp_min,
+          'temp_gap': temp_gap,
+          'temp_self': temp_self,
+          'weather': weather,
+          'Sunday': week[0],
+          'Monday': week[1],
+          'Tuesday': week[2],
+          'Wednesday': week[3],
+          'Thursday': week[4],
+          'Friday': week[5],
+          'Saturday': week[6],
+          'timezone_00_03': timezone[0],
+          'timezone_03_06': timezone[1],
+          'timezone_06_09': timezone[2],
+          'timezone_09_12': timezone[3],
+          'timezone_12_15': timezone[4],
+          'timezone_15_18': timezone[5],
+          'timezone_18_21': timezone[6],
+          'timezone_21_24': timezone[7],
+          'work_time': work_time,
+          'actual_work_time': actual_work_time,
+          'efficiency': efficiency,
+        };
+        var request = new XMLHttpRequest();
+  
+        request.open('POST', 'https://addition-entities.azurewebsites.net/api/insertorreplace', true);
+        request.responseType = 'json';
+        request.send(param);
+
+        request.onload = function () {
+          var data = this.response;
+          console.log(data);
+        };
+      }
+
       document.querySelector('#scan').addEventListener('click', function(event) {
         console.log("submit");
       });
@@ -363,7 +363,7 @@
         event.preventDefault();
         console.log("Begin BLE scanning");
 
-        add_sql(date_str, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         
         beginBLE();
       });
@@ -397,7 +397,7 @@
           }
       });
 
-      function add_sql(date_str, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
+      function add_sql(date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
         $.ajax({
             url: '/sql_post/',
             type: 'POST',
