@@ -515,7 +515,8 @@
         }).done( response => {
             console.log(response);
             console.log(response.id);
-            return JSON.string(response).id;
+            console.log(typeof response.id);
+            return response.id;
         });
       }
 
