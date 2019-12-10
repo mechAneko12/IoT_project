@@ -470,6 +470,7 @@
 
       function update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
         console.log(id);
+        var Id = 0;
         $.ajax({
             url: '/sql_update/',
             type: 'POST',
@@ -512,6 +513,8 @@
               'efficiency': efficiency,
             },
             success: function(json_data) {   // 200 OK時
+              id = json_data.id;
+              Id = json_data.id;
               return json_data.id;
             }
         })/*.done( response => {
@@ -520,6 +523,7 @@
             console.log(typeof response.id);
             return response.id;
         })*/;
+        return Id;
       }
 
       function drawAccelChart() {
