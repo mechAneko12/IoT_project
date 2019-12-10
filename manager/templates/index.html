@@ -365,7 +365,8 @@
         console.log("Begin BLE scanning");
 
         //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-        id = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        id = response.responseJSON;
         console.log(typeof id);
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
@@ -521,8 +522,6 @@
             console.log(response);
             console.log(response.id);
             console.log(typeof response.id);
-            Id = response.id;
-            return Id;
         });
       }
 
