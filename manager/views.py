@@ -43,7 +43,7 @@ def sql_get(request):
       day.append(['no',0,0])
     time.append(day)
     num.append(n)
-    if i == 3:
+    if i == 0:
       return JsonResponse({"id": 1})
   
   d = {"time": time,"num": num, "column": column}
