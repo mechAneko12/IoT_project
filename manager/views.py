@@ -37,14 +37,15 @@ def sql_get(request):
           pass
         else:
           column.append(h.data)
+          if i == 3:
+            return JsonResponse({"id": 1})
         n += 1
         day.append([h.name,h.actual_work_time,h.work_time-h.actual_work_time])
     else:
       day.append(['no',0,0])
     time.append(day)
     num.append(n)
-    if i == 2:
-      return JsonResponse({"id": 1})
+    
   
   d = {"time": time,"num": num, "column": column}
   #"sun": time[0], "mon": time[1],"tue": time[2],"wed": time[3], "thu": time[4], "fri": time[5], "sat": time[6]
