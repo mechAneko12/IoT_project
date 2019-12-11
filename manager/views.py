@@ -36,9 +36,8 @@ def sql_get(request):
         if h.name in column:
           pass
         else:
-          column.append(h.data)
-          if i == 3:
-            return JsonResponse({"id": 1})
+          column.append(h.name)
+          
         n += 1
         day.append([h.name,h.actual_work_time,h.work_time-h.actual_work_time])
     else:
