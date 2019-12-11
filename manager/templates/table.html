@@ -43,7 +43,7 @@
         }
     });
 
-    
+
     var date = new Date();
     const dayOfWeek = date.getDay() ;	// 曜日(数値)
 
@@ -140,12 +140,7 @@
             url: '/table/sql_get/',
             type: 'POST',
             //headers:{'X-CSRFToken': '{{csrf_token}}'},
-            beforeSend: function(xhr, settings) {
-              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-                console.log("a");
-              }
-            },
+            
             dataType: 'json',
             //contentType: 'application/json',
             data: {
