@@ -47,6 +47,7 @@ def sql_get(request):
     
   
   d = {"time": time,"num": num, "column": column}
+  d = {"d": str(d)}
   #"sun": time[0], "mon": time[1],"tue": time[2],"wed": time[3], "thu": time[4], "fri": time[5], "sat": time[6]
   return JsonResponse(d)
 
