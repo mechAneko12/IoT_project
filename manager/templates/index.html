@@ -194,6 +194,7 @@
       var efficiency = 0;
 
       var sec = 0;
+      var sec_azure = 0;
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
@@ -298,14 +299,21 @@
 
             }
             work_time += 3;
+            efficiency = actual_work_time/work_time;
             if(sec < 60){
               sec += 3;
             }else{
               sec = 0;
               update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
             }
+            if(sec < 300){
+              sec += 3;
+            }else{
+              sec = 0;
+              azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+            }
             str = "";
-            efficiency = actual_work_time/work_time;
+            
           }else{
             str = str + x;
           }
@@ -373,8 +381,7 @@
         //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         //response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         
-
-        azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
       });
 
