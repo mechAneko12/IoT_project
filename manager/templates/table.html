@@ -13,16 +13,16 @@
   </div>
   
   <script type="text/javascript">
-    const date = new Date();
+    var date = new Date();
     const dayOfWeek = date.getDay() ;	// 曜日(数値)
 
     var week = [];
-    const dt = date.setDate(date.getDate() - dayOfWeek);
+    date.setDate(date.getDate() - dayOfWeek);
     for (  var j = 0;  j < 7;  j++  ){
-      var d = dt.setDate(dt.getDate()  + j);
-      var year = d.getFullYear() ;	// 年
-      var month = d.getMonth() + 1 ;	// 月
-      var day = d.getDate() ;	// 日
+      date.setDate(date.getDate()  + 1);
+      var year = date.getFullYear() ;	// 年
+      var month = date.getMonth() + 1 ;	// 月
+      var day = d.getateate() ;	// 日
       var date_str = String(year)+String(month)+String(day);
       console.log(date_str);
       week.push(date_str);
