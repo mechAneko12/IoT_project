@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      var id = 75;
+      var id =-1;
 
       const date = new Date();
       const year = date.getFullYear() ;	// 年
@@ -250,7 +250,13 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          id = add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+          reponse = add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+          response.then(function(data){
+            id = data.id;
+          });
+          //id = response.id;
+          console.log(typeof id);
+          console.log(response);
           azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         });
       }
@@ -365,19 +371,10 @@
         console.log("Begin BLE scanning");
 
         //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-        response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-        response.then(function(data){
-          id = data.id;
-        });
-        //id = response.id;
-        console.log(typeof id);
-        console.log(response);
+        //response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        
 
-
-
-
-
-        //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
       });
 
@@ -463,10 +460,11 @@
                 console.log("success");
             }*/
             
-        }).done( response => {
-            console.log(response);
-            console.log(response.id);
-            return response.id;
+        }).done(function(data, textStatus, jqXHR) {
+            console.log(jqXHR);
+            console.log(jqXHR.responseJSON);
+            console.log(typeof jqXHR.responseJSON.id);
+            return data;
         })/*.fail(function (jqXHR, textStatus, errorThrown) {
                     // 通信失敗時の処理
                     alert('ファイルの取得に失敗しました。');
