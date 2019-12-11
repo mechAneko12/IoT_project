@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('manager.urls')),
     path('table/', views.table, name='table'),
+    path("table/sql_get/", views.sql_get, name = "sql_get"),
     #path("sql_post/", views.sql_post, name = "sql_post"),
 ]
