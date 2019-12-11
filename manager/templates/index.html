@@ -355,11 +355,11 @@
         request.setRequestHeader("Content-Type", "application/json")
         request.responseType = 'json';
         request.send(JSON.stringify(param));
-
+        /*
         request.onload = function () {
           var data = this.response;
           console.log(data);
-        };
+        };*/
       }
 
       document.querySelector('#scan').addEventListener('click', function(event) {
