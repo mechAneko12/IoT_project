@@ -66,6 +66,7 @@
     response = get_sql(week);
     response.then(function(data){
       console.log(data.d);
+      console.log(typeof data.d);
       console.log(JSON.parse(data.d));
       console.log(JSON.parse(data.d).num[0]);
       time = data.time;
