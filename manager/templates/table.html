@@ -68,8 +68,8 @@
       console.log(data.d);
       console.log(typeof data.d);
       var result = data.d.replace(/'/g, '"');
-      console.log(JSON.parse(data.d));
-      console.log(JSON.parse(data.d).num[0]);
+      console.log(JSON.parse(result));
+      console.log(JSON.parse(result).time[0][0][0]);
       time = data.time;
       num = data.num;
       column = data.column;
