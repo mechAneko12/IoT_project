@@ -15,6 +15,7 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_get(request):
+  return JsonResponse({"id": 1})
   
   week =[request.POST.get('sun'),
         request.POST.get('mon'),
