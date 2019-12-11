@@ -31,7 +31,7 @@ def sql_get(request):
     day = []
     n = 0
     if data.exists():
-      return JsonResponse({"id": 1})
+      #return JsonResponse({"id": 1})
       for h in data:
         if h.name in column:
           pass
