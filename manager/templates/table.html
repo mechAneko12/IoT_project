@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>イベント一覧ページ</title>
+  <title>学習記録</title>
 </head>
 <body>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -13,6 +13,39 @@
   </div>
   
   <script type="text/javascript">
+    const date = new Date();
+    const dayOfWeek = date.getDay() ;	// 曜日(数値)
+
+    var week = [];
+    const dt = date.setDate(date.getDate() - dayOfWeek);
+    for (  var j = 0;  j < 7;  j++  ){
+      var d = dt.setDate(dt.getDate()  + j);
+      var year = d.getFullYear() ;	// 年
+      var month = d.getMonth() + 1 ;	// 月
+      var day = d.getDate() ;	// 日
+      var date_str = String(year)+String(month)+String(day);
+      console.log(date_str);
+      week.push(date_str);
+    }
+    var time;
+    var name;
+    var column;
+
+    reponse = get_sql(week);
+    response.then(function(data){
+      time = data.time;
+      name = data.name;
+      column = data.column;
+    });
+    //id = response.id;
+    console.log(typeof time);
+    console.log(typeof name);
+    console.log(typeof column);
+    console.log(time);
+    console.log(name);
+    console.log(column);
+    console.log(response);
+
     var i = 0;
     var data;
     var chart;
@@ -48,7 +81,7 @@
           }
         }
     }
-    
+
     document.getElementById("upcount").onclick = function (){
       i = parseInt(i) + 10;
       data = google.visualization.arrayToDataTable([
@@ -67,6 +100,61 @@
       };
       chart.draw(data,options);
     }
+
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = jQuery.trim(cookies[i]);
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    function get_sql(week){
+        $.ajax({
+            url: '/sql_get/',
+            type: 'POST',
+            //headers:{'X-CSRFToken': '{{csrf_token}}'},
+            beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+              }
+            },
+            dataType: 'json',
+            //contentType: 'application/json',
+            data: {
+              'sun': week[0],
+              'mon': week[1],
+              'tue': week[2],
+              'wed': week[3],
+              'thu': week[4],
+              'fri': week[5],
+              'sat': week[6],
+            }
+        }).done(function(data, textStatus, jqXHR) {
+            return data;
+        });
+      }
     
   </script>
   <div id="gct_sample_column" style="width:80%; height:250pt" ></div>

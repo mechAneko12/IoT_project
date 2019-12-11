@@ -14,6 +14,44 @@ def index(request):
 def table(request):
     return render(request, 'table.html', {})
 
+def sql_get(request):
+  
+  week =[request.POST.get('sun'),
+        request.POST.get('mon'),
+        request.POST.get('tue'),
+        request.POST.get('wed'),
+        request.POST.get('thu'),
+        request.POST.get('fri'),
+        request.POST.get('sat')]
+  time =[]
+  num = []
+  column = []
+  for i in range(7):
+    data = Data.objects.filter(date_str = week[i])
+    day = []
+    n = 0
+    if data.exists():
+      for h in data:
+        if h.name in column:
+          pass
+        else:
+          column.append(h.data)
+        n += 1
+        day.append([h.name,h.actual_work_time,h.work_time-h.actual_work_time])
+    else:
+      day.append(['no',0,0])
+    time.append(day)
+    num.append(n)
+  
+  d = {"time": time,"num": num, "column": column}
+  #"sun": time[0], "mon": time[1],"tue": time[2],"wed": time[3], "thu": time[4], "fri": time[5], "sat": time[6]
+  return JsonResponse(d)
+
+
+
+
+
+
 def sql_post(request):
   '''
   return JsonResponse({"id": 1})
@@ -113,9 +151,7 @@ def sql_update(request):
   work_time = request.POST.get('work_time')
   actual_work_time = request.POST.get('actual_work_time')
   efficiency = request.POST.get('efficiency')
-  data = Data.objects.filter(id = Id).update(date = date,
-                              date_str = date_str,
-                              name=name, 
+  data = Data.objects.filter(id = Id).update(name=name, 
                               lux = lux,
                               temp_outside = temp_outside,
                               temp_max = temp_max,
