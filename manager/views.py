@@ -15,7 +15,6 @@ def table(request):
     return render(request, 'table.html', {})
 
 def sql_get(request):
-  return JsonResponse({"id": 1})
   
   week =[request.POST.get('sun'),
         request.POST.get('mon'),
@@ -32,6 +31,7 @@ def sql_get(request):
     day = []
     n = 0
     if data.exists():
+      return JsonResponse({"id": 1})
       for h in data:
         if h.name in column:
           pass
