@@ -77,7 +77,8 @@
     console.log(num);
     console.log(column);
     console.log(response);
-    console.log(response.responseJSON.num);
+    console.log(response.responseText);
+    console.log(JSON.parse(response.responseText).num[0]);
 
 
     var i = 0;
