@@ -20,19 +20,20 @@
     var week = [];
     date.setDate(date.getDate() - dayOfWeek);
     for (  var j = 0;  j < 7;  j++  ){
-      date.setDate(date.getDate()  + 1);
+      
       var year = date.getFullYear() ;	// 年
       var month = date.getMonth() + 1 ;	// 月
       var day = date.getDate() ;	// 日
       var date_str = String(year)+String(month)+String(day);
       console.log(date_str);
       week.push(date_str);
+      date.setDate(date.getDate()  + 1);
     }
     var time;
     var name;
     var column;
 
-    reponse = get_sql(week);
+    response = get_sql(week);
     response.then(function(data){
       time = data.time;
       name = data.name;
