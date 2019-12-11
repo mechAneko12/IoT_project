@@ -31,7 +31,7 @@ def sql_get(request):
     day = []
     n = 0
     if data.exists():
-      #return JsonResponse({"id": 1})
+      
       for h in data:
         if h.name in column:
           pass
@@ -43,6 +43,8 @@ def sql_get(request):
       day.append(['no',0,0])
     time.append(day)
     num.append(n)
+    if i == 3:
+      return JsonResponse({"id": 1})
   
   d = {"time": time,"num": num, "column": column}
   #"sun": time[0], "mon": time[1],"tue": time[2],"wed": time[3], "thu": time[4], "fri": time[5], "sat": time[6]
