@@ -66,15 +66,15 @@
     response = get_sql(week);
     response.then(function(data){
       time = data.time;
-      name = data.name;
+      num = data.num;
       column = data.column;
     });
     //id = response.id;
     console.log(typeof time);
-    console.log(typeof name);
+    console.log(typeof name[3]);
     console.log(typeof column);
     console.log(time);
-    console.log(name);
+    console.log(name[3]);
     console.log(column);
     console.log(response);
 
