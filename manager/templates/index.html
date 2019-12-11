@@ -417,7 +417,7 @@
       });
 
       function add_sql(date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
-        $.ajax({
+        return $.ajax({
             url: '/sql_post/',
             type: 'POST',
             //headers:{'X-CSRFToken': '{{csrf_token}}'},

@@ -136,7 +136,7 @@
     
 
     function get_sql(week){
-        $.ajax({
+        return $.ajax({
             url: '/table/sql_get/',
             type: 'POST',
             headers:{'X-CSRFToken': '{{csrf_token}}'},
