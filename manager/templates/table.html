@@ -70,12 +70,13 @@
       var result = data.d.replace(/'/g, '"');
       console.log(JSON.parse(result));
       console.log(JSON.parse(result).time[0][0][0]);
+      time = JSON.parse(result).time;
+      num = JSON.parse(result).num;
+      column = JSON.parse(result).column;
+      var n = column.length
     });
 
-    time = JSON.parse(result).time;
-    num = JSON.parse(result).num;
-    column = JSON.parse(result).column;
-    var n = column.length
+    
 
     var d =[[],[],[],[],[],[],[]]//最終敵にdataに入れる配列の原型
 
