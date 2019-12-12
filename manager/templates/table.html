@@ -77,7 +77,7 @@
       column = JSON.parse(result).column;
       var n = column.length
 
-      d =[[],[],[],[],[],[],[]];//最終敵にdataに入れる配列の原型
+      d =[[""],[""],[""],[""],[""],[""],[""]];//最終敵にdataに入れる配列の原型
 
       for (var j = 0; j < 7; j++){
         for (var k = 0; k < n; k++){
@@ -90,14 +90,14 @@
           for (var l = 0; l < num[j]; l++){
             var column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
             var column_index = column.indexOf(column_name);
-            d[j][column_index] += time[j][l][1];
+            d[j][column_index+1] += time[j][l][1];
           }
         }
       }
       d.unshift(column.unshift(""))
       for (var m = 0; m < 7; m++){
         //d[m].unshift(week[m]);
-        d[m].splice(0,0,week[m])
+        d[m][0] = week[m];
       }
 
       google.load("visualization", "1", {packages:["corechart"]});
