@@ -102,8 +102,8 @@
             column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
             column_index = column.indexOf(column_name);
             d[j][column_index+1] += time[j][l][1];
-            if (num[j]===1){
-              break;
+            if (l === (num[j]-1)){
+              d[j][column_index+1] = Math.round(d[j][column_index+1]);
             }
           }
         }
@@ -163,7 +163,8 @@
         var options = {
             title: '項目別作業時間',
             hAxis: {title: '日付'},
-            isStacked: true
+            isStacked: true,
+            vAxis:{minValue:0,maxValue:24,gridlined:{count:12 }}
         };
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
@@ -232,6 +233,9 @@
               column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
               column_index = column.indexOf(column_name);
               d[j][column_index+1] += time[j][l][1];
+              if (l === (num[j]-1)){
+                d[j][column_index+1] = Math.round(d[j][column_index+1]);
+              }
             }
           }
         }
@@ -264,7 +268,8 @@
         var options = {
             title: '項目別作業時間',
             hAxis: {title: '日付'},
-            isStacked: true
+            isStacked: true,
+            vAxis:{minValue:0,maxValue:24,gridlined:{count:12 }}
         };
         chart.draw(data,options);
       });
