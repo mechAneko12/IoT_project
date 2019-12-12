@@ -103,6 +103,9 @@
             column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
             column_index = column.indexOf(column_name);
             d[j][column_index+1] += time[j][l][1];
+            if (num[j]===1){
+              break;
+            }
           }
         }
       }
