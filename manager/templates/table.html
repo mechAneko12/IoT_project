@@ -105,7 +105,7 @@
             console.log(num[j]);
             if (l === (num[j]-1)){
               for (var q = 0; q < n; q++){
-                d[j][q+1] = Math.round(d[j][q+1]/3600);
+                d[j][q+1] = Math.round(d[j][q+1]/6)/10;
               }
             }
           }
@@ -167,7 +167,7 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:0,maxValue:23,gridlined:{count:12 }}
+            vAxis:{minValue:0,maxValue:720,gridlined:{count:12 }}
         };
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
@@ -238,7 +238,7 @@
               d[j][column_index+1] += time[j][l][1];
               if (l === (num[j]-1)){
                 for (var q = 0; q < n; q++){
-                  d[j][q+1] = Math.round(d[j][q+1]/3600);
+                  d[j][q+1] = Math.round(d[j][q+1]/6)/10;
                 }
               }
             }
@@ -274,7 +274,7 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:2,maxValue:22,gridlined:{count:13 }}
+            vAxis:{minValue:2,maxValue:22,gridlined:{count:6 }}
         };
         chart.draw(data,options);
       });
