@@ -62,6 +62,7 @@
     var time;
     var num;
     var column;
+    var d;
 
 
     response = get_sql(week);
@@ -80,7 +81,7 @@
 
       var col = [""];
 
-      var d =[[""],[""],[""],[""],[""],[""],[""]];//最終敵にdataに入れる配列の原型
+      d =[[""],[""],[""],[""],[""],[""],[""]];//最終敵にdataに入れる配列の原型
 
       for (var j = 0; j < 7; j++){
         for (var k = 0; k < n; k++){
@@ -180,6 +181,7 @@
     }
 
     document.getElementById("upcount").onclick = function (){
+      d = [[""],[""],[""],[""],[""],[""],[""]];
       var week = []
       date.setDate(date.getDate() + 7);
       for (  var j = 0;  j < 7;  j++  ){
