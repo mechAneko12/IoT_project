@@ -103,7 +103,7 @@
             column_index = column.indexOf(column_name);
             d[j][column_index+1] += time[j][l][1];
             if (l === (num[j]-1)){
-              d[j][column_index+1] = Math.round(d[j][column_index+1]);
+              d[j][column_index+1] = Math.round(d[j][column_index+1]/3600);
             }
           }
         }
@@ -234,7 +234,7 @@
               column_index = column.indexOf(column_name);
               d[j][column_index+1] += time[j][l][1];
               if (l === (num[j]-1)){
-                d[j][column_index+1] = Math.round(d[j][column_index+1]);
+                d[j][column_index+1] = Math.round(d[j][column_index+1]/3600);
               }
             }
           }
