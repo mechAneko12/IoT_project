@@ -165,24 +165,28 @@
             hAxis: {title: '日付'},
             isStacked: true
         };
+        if (column.length === 0){
+          data = google.visualization.arrayToDataTable([
+              [     '', 'nodata'],
+              [week[0],        0],
+              [week[1],        0],
+              [week[2],        0],
+              [week[3],        0],
+              [week[4],        0],
+              [week[5],        0],
+              [week[6],        0],
+          ]);
+        }
   
         chart = new google.visualization.ColumnChart(document.getElementById('gct_sample_column'));
         chart.draw(data, options);
   
-        chart.Update = function(data){
-          chart.draw(data,options);
-  
-          document.getElementById("upcount").onclick = function() {
-            i = parseInt(i) + 10;
-            console.log(i);
-            chart.draw(data,options);
-          }
-        }
+        
     }
 
     document.getElementById("upcount").onclick = function (){
       d = [[""],[""],[""],[""],[""],[""],[""]];
-      var week = []
+      week = []
       date.setDate(date.getDate() + 7);
       for (  var j = 0;  j < 7;  j++  ){
         
@@ -245,8 +249,20 @@
         }
 
         data = google.visualization.arrayToDataTable(d);
+        if (column.length === 0){
+          data = google.visualization.arrayToDataTable([
+              [     '', 'nodata'],
+              [week[0],        0],
+              [week[1],        0],
+              [week[2],        0],
+              [week[3],        0],
+              [week[4],        0],
+              [week[5],        0],
+              [week[6],        0],
+          ]);
+        }
         var options = {
-            title: '学習状況',
+            title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true
         };
