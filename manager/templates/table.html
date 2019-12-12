@@ -113,7 +113,7 @@
       }
       d.unshift(col)
       for (var m = 1; m < 8; m++){
-        d[m][0] = week[m];
+        d[m][0] = week[m-1];
         
       }
       for (var o = 0; o< 8; o++){
@@ -220,7 +220,7 @@
         d.unshift(col)
         for (var m = 1; m < 8; m++){
           //d[m].unshift(week[m]);
-          d[m][0] = week[m];
+          d[m][0] = week[m-1];
           
         }
 
@@ -296,7 +296,7 @@
         d.unshift(col)
         for (var m = 1; m < 8; m++){
           //d[m].unshift(week[m]);
-          d[m][0] = week[m];
+          d[m][0] = week[m-1];
           
         }
 
@@ -352,9 +352,6 @@
   <ul>
     <li>イベントA</li>
     <li>イベントB</li>
-    <li>イベントC</li>
-    <li>イベントD</li>
-    <li>イベントE</li>
   </ul>
 </body>
 </html>
