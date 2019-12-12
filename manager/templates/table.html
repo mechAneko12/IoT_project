@@ -102,6 +102,7 @@
             column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
             column_index = column.indexOf(column_name);
             d[j][column_index+1] += time[j][l][1];
+            console.log(num[j]);
             if (l === (num[j]-1)){
               d[j][column_index+1] = Math.round(d[j][column_index+1]/3600);
             }
@@ -269,7 +270,7 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:2,maxValue:22,gridlined:{count:12 }}
+            vAxis:{minValue:2,maxValue:22,gridlined:{count:13 }}
         };
         chart.draw(data,options);
       });
