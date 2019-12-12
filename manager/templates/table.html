@@ -96,7 +96,8 @@
       }
       d.unshift(column.unshift(""))
       for (var m = 0; m < 7; m++){
-        d[m].unshift(week[m]);
+        //d[m].unshift(week[m]);
+        d[m].splice(0,0,week[m])
       }
 
       google.load("visualization", "1", {packages:["corechart"]});
