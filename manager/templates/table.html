@@ -164,7 +164,7 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:0,maxValue:24,gridlined:{count:12 }}
+            vAxis:{minValue:0,maxValue:23,gridlined:{count:12 }}
         };
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
@@ -188,7 +188,7 @@
     document.getElementById("upcount").onclick = function (){
       d = [[""],[""],[""],[""],[""],[""],[""]];
       week = []
-      date.setDate(date.getDate() + 7);
+      date.setDate(date.getDate());
       for (  var j = 0;  j < 7;  j++  ){
         
         var year = date.getFullYear() ;	// 年
@@ -269,7 +269,7 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:0,maxValue:24,gridlined:{count:12 }}
+            vAxis:{minValue:2,maxValue:22,gridlined:{count:12 }}
         };
         chart.draw(data,options);
       });
