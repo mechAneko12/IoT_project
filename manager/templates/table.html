@@ -98,6 +98,10 @@
       for (var m = 1; m < 8; m++){
         //d[m].unshift(week[m]);
         d[m][0] = week[m];
+        
+      }
+      for (var o = 0; o< column.length; o++){
+        console.log(d[0][o])
       }
 
       google.load("visualization", "1", {packages:["corechart"]});
