@@ -62,9 +62,7 @@
     var time;
     var num;
     var column;
-    var col;
 
-    var d;
 
     response = get_sql(week);
     response.then(function(data){
@@ -80,9 +78,9 @@
       var column_name;
       var column_index;
 
-      col = [""];
+      var col = [""];
 
-      d =[[""],[""],[""],[""],[""],[""],[""]];//最終敵にdataに入れる配列の原型
+      var d =[[""],[""],[""],[""],[""],[""],[""]];//最終敵にdataに入れる配列の原型
 
       for (var j = 0; j < 7; j++){
         for (var k = 0; k < n; k++){
@@ -182,6 +180,18 @@
     }
 
     document.getElementById("upcount").onclick = function (){
+      var week = []
+      date.setDate(date.getDate() + 7);
+      for (  var j = 0;  j < 7;  j++  ){
+        
+        var year = date.getFullYear() ;	// 年
+        var month = date.getMonth() + 1 ;	// 月
+        var day = date.getDate() ;	// 日
+        var date_str = String(year)+"/"+String(month)+"/"+String(day);
+        console.log(date_str);
+        week.push(date_str);
+        date.setDate(date.getDate()  + 1);
+      }
       response = get_sql(week);
       response.then(function(data){
         console.log(data.d);
@@ -215,7 +225,7 @@
             for (var l = 0; l < num[j]; l++){
               column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
               column_index = column.indexOf(column_name);
-              d[j][column_index] += time[j][l][1];
+              d[j][column_index+1] += time[j][l][1];
             }
           }
         }
