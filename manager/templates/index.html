@@ -9,9 +9,6 @@
   <body>
     <p>BLE(CORS-ON)</p>
     <p><form><button id="startNotifications">Start notifications</button></form></p>
-    <div class="contents margin">
-      <button id="scan" class="button">sample</button>
-    </div>
     <div id="accelerometer" style="width:80%; height:200px;"></div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -251,13 +248,7 @@
         .then(char => {
           characteristic.addEventListener("characteristicvaluechanged",handleNotifications);
           console.log("notify");
-          response = add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-          response.then(function(data){
-            id = data.id;
-          });
-          //id = response.id;
-          console.log(typeof id);
-          console.log(response);
+          
           azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         });
       }
@@ -380,7 +371,13 @@
 
         //add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         //response = update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
-        
+        response = add_sql(date_str, name, lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
+        response.then(function(data){
+          id = data.id;
+        });
+        //id = response.id;
+        console.log(typeof id);
+        console.log(response);
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
       });
