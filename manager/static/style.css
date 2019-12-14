@@ -71,3 +71,21 @@ hr{
   box-sizing: border-box;
   border-color: rgba(0, 0, 0, 0);
 }
+
+.button{
+  border-width: 1px;
+  border-color: #e6e6e6;
+  border-style: solid;
+  background-color: #fff;
+  padding: 5px 20px 5px 20px;
+  color: #4d4d4d;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0px;
+}
+.button:hover{
+  border-color: #ccc;
+}
+.button:active{
+  background-color: #f0f0f0;
+}
