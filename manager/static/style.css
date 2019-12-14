@@ -73,6 +73,19 @@ hr{
 }
 
 @media screen and (max-width: 480px){
+  html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Lato', Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    min-width: 480px;
+    position: relative;
+    background-color: #f0f0f0;
+    background-size: 30px 30px;
+    margin: 0 auto;
+    background-image: radial-gradient(#C6E6FB 15%, transparent 20%),
+                      radial-gradient(#FCFBCA 15%, transparent 20%);
+    background-position: 0 0, 15px 15px;
+  }
   .container{
     margin: auto;
     width: 100%;

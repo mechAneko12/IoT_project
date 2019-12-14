@@ -9,9 +9,16 @@
   </head>
   <body>
     <div class="container">
-    <p>BLE(CORS-ON)</p>
-    <p><form><button id="startNotifications">Start notifications</button></form></p>
-    <div id="accelerometer" style="width:80%; height:200px;"></div>
+      <div class="title margin">
+        <p>BLE(CORS-ON)</p>
+      </div>
+      <div class="contents margin"></div>
+        <p><form><button id="startNotifications">Start notifications</button></form></p>
+        <div id="accelerometer" style="width:80%; height:200px;"></div>
+        <ul>
+            <li><a href="{% url 'table' %}">学習記録</a></li>
+        </ul>
+      </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
@@ -547,9 +554,7 @@
         chart.draw(gaccel, accOptions);
       }
     </script>
-    <ul>
-        <li><a href="{% url 'table' %}">学習記録</a></li>
-    </ul>
+    
     <img height="150" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/Rotating_earth__large_wy9cfd.gif" width="500"/>
     </div>
   </body>
