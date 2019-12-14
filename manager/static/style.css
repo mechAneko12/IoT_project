@@ -25,7 +25,7 @@ html, body {
   background-size: 30px 30px;
   margin: 0 auto;
   background-image: radial-gradient(#C6E6FB 15%, transparent 20%),
-                    radial-gradient(#FCFBCA 15%, transparent 20%);
+                    radial-gradient(#b3f2db 15%, transparent 20%);
   background-position: 0 0, 15px 15px;
 }
 
