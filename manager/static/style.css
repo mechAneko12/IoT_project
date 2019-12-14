@@ -127,3 +127,10 @@ hr{
 a { text-decoration: none; }
 a:link { color: #9a9a9a; }
 a:visited { color: #4d4d4d; }
+
+#title{
+  color:#2b9cff;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 2em;
+}
