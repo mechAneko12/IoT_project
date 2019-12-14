@@ -52,7 +52,7 @@ hr{
 }
 
 .contents{
-  padding: 25px 0px 100px 0px;
+  padding: 25px 0px 10px 0px;
 }
 
 .footer{
@@ -118,4 +118,4 @@ hr{
 
 a { text-decoration: none; }
 a:link { color: #9a9a9a; }
-a:visited { color: #9a9a9a; }
+a:visited { color: #4d4d4d; }
