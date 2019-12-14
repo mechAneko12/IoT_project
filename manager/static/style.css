@@ -72,6 +72,10 @@ hr{
   border-color: rgba(0, 0, 0, 0);
 }
 
+.graph{
+  padding: 0px 10px 0px 10px;
+}
+
 @media screen and (max-width: 480px){
   html, body {
     height: 100%;
