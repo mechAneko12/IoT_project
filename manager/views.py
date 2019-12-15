@@ -5,6 +5,7 @@ from .models import Data
 import datetime
 from django.core import serializers
 import json
+import numpy as np
 
 # Create your views here.
 def index(request):
@@ -15,8 +16,37 @@ def table(request):
     return render(request, 'table.html', {})
 
 def tree_get(request):
-  data = Data.objects.all()
-  d = {"d": str(data)}
+  da = Data.objects.all()
+  data = np.array([])
+  target = np.array([])
+  for h in da:
+    day = []
+    day.append(h.lux)
+    day.append(h.temp_outside)
+    day.append(h.temp_max)
+    day.append(h.temp_min)
+    day.append(h.temp_gap)
+    day.append(h.temp_self)
+    day.append(h.weather)
+    day.append(h.Sunday)
+    day.append(h.Monday)
+    day.append(h.Tuesday)
+    day.append(h.Wednesday)
+    day.append(h.Thursday)
+    day.append(h.Friday)
+    day.append(h.Saturday)
+    day.append(h.timezone_00_03)
+    day.append(h.timezone_03_06)
+    day.append(h.timezone_06_09)
+    day.append(h.timezone_09_12)
+    day.append(h.timezone_12_15)
+    day.append(h.timezone_15_18)
+    day.append(h.timezone_18_21)
+    day.append(h.timezone_21_24)
+    data.append(day)
+    target.append(h.efficiency)
+  d = {"data": data, "target": target, 'target_names': np.array(["good", "bad"], dtype='<U10'), 'feature_names': ['lux','temp_outside','temp_max','temp_min','temp_gap','temp_self','weather','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','timezone_00_03','timezone_03_06','timezone_06_09','timezone_09_12','timezone_12_15','timezone_15_18','timezone_18_21','timezone_21_24']}
+  d = {"d": str(d)}
   return JsonResponse(d)
 
 def sql_get(request):
