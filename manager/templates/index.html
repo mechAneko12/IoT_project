@@ -14,6 +14,12 @@
       </div>
       <div class="contents margin"></div>
         <button id="startNotifications" class = "button">Bluetooth接続</button>
+        <form>
+          <label for="textForm">作業内容を入力してください: </label>
+          <input type="text" id="textForm">
+           
+          <button id = "name" class="button">送信</button>
+        </form>
         <hr>
         <div id="accelerometer" class = graph style="width:90%; height:200px;"></div>
             <li class="record"><a href="{% url 'table' %}">学習記録</a></li>
@@ -390,6 +396,18 @@
         console.log(response);
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
+      });
+
+      var button = document.getElementById("name");
+ 
+      // ボタンをクリックした時の処理
+      button.addEventListener("click", function(e) {
+      
+          e.preventDefault();
+      
+          // 入力フォームの値を取得
+          var textForm = document.getElementById("textForm").value;
+          console.log(name);
       });
 
       //
