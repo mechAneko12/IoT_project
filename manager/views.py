@@ -43,8 +43,8 @@ def tree_get(request):
     day.append(h.timezone_15_18)
     day.append(h.timezone_18_21)
     day.append(h.timezone_21_24)
-    dataappend(day)
-    targetappend(h.efficiency)
+    data.append(day)
+    target.append(h.efficiency)
   data = np.array(data)
   target = np.array(target)
   d = {"data": data, "target": target, 'target_names': np.array(["good", "bad"], dtype='<U10'), 'feature_names': ['lux','temp_outside','temp_max','temp_min','temp_gap','temp_self','weather','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','timezone_00_03','timezone_03_06','timezone_06_09','timezone_09_12','timezone_12_15','timezone_15_18','timezone_18_21','timezone_21_24']}
