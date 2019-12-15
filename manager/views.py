@@ -14,6 +14,11 @@ def index(request):
 def table(request):
     return render(request, 'table.html', {})
 
+def tree_get(request):
+  data = Data.objects.all()
+  d = {"d": str(data)}
+  return JsonResponse(d)
+
 def sql_get(request):
   
   week =[request.POST.get('sun'),

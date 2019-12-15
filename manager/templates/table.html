@@ -127,6 +127,12 @@
       google.setOnLoadCallback(draw);
     });
 
+    response = get_sql();
+    response.then(function(data){
+      console.log(data.d);
+    });
+
+
     var i = 0;
     var data;
     var chart;
@@ -345,6 +351,16 @@
             return data;
         });
       }
+    function get_tree(){
+      return $.ajax({
+          url: '/table/tree_get/',
+          type: 'GET',
+          
+          dataType: 'json',
+      }).done(function(data, textStatus, jqXHR) {
+          return data;
+      });
+    }
     
   </script>
   <div id="gct_sample_column" style="width:80%; height:250pt" ></div>
