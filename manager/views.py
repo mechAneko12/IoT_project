@@ -17,8 +17,8 @@ def table(request):
 
 def tree_get(request):
   da = Data.objects.all()
-  data = np.array([])
-  target = np.array([])
+  data = []
+  target = []
   for h in da:
     day = []
     day.append(h.lux)
@@ -43,11 +43,12 @@ def tree_get(request):
     day.append(h.timezone_15_18)
     day.append(h.timezone_18_21)
     day.append(h.timezone_21_24)
-    np.append(data,day,axis=0)
-    np.append(target,h.efficiency,axis=0)
-  
+    dataappend(day)
+    targetappend(h.efficiency)
+  data = np.array(data)
+  target = np.array(target)
   d = {"data": data, "target": target, 'target_names': np.array(["good", "bad"], dtype='<U10'), 'feature_names': ['lux','temp_outside','temp_max','temp_min','temp_gap','temp_self','weather','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','timezone_00_03','timezone_03_06','timezone_06_09','timezone_09_12','timezone_12_15','timezone_15_18','timezone_18_21','timezone_21_24']}
-  d = data.ndim
+ 
   d = {"d": str(d)}
   return JsonResponse(d)
 
