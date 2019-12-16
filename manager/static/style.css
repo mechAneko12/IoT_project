@@ -139,6 +139,9 @@ a:visited { color: #4d4d4d; }
   line-height: 2em;
 }
 
+.updown{
+  display: table;
+}
 
 .forward{
   text-align: right;
