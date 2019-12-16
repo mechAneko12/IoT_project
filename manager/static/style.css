@@ -148,5 +148,5 @@ a:visited { color: #4d4d4d; }
 }
 
 .updown{
-  display: inline-block;
+  display: flex;
 }
