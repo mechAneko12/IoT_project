@@ -140,17 +140,16 @@ a:visited { color: #4d4d4d; }
 }
 
 
-.updown{
-  display: flex;
-}
+
 
 .forward{
-  margin-right: 20px;
-  margin-left: 300px;
+  display:table-cell;
+  text-align: right;
+  margin-right: 10px;
 }
 
 .back{
-  margin-right: 300px;
-  margin-left: 20px;
+  display:table-cell;
+  margin-right: 10px;
 }
 
