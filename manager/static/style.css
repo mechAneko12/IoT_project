@@ -139,15 +139,18 @@ a:visited { color: #4d4d4d; }
   line-height: 2em;
 }
 
-h1{
-  display: inline;
+
+.updown{
+  display: flex;
 }
 
-h1.forward{
-  text-align: right;
+.forward{
+  margin-right: 20px;
+  margin-left: 300px;
 }
 
-h1.back{
-  text-align: left;
+.back{
+  margin-right: 300px;
+  margin-left: 20px;
 }
 
