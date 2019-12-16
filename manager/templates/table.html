@@ -1,17 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <title>学習記録</title>
 </head>
+<div class="container">
 <body>
+    <div class="title margin">
+      <p id="title">学習記録</p>
+    </div>
+    <div class="contents margin">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <button type = "button" id = "downcount">◀</button>
     <button type = "button" id = "upcount">▶</button>
-  <div class="contents margin">
-    <button id="scan" class="button">sample</button>
-  </div>
+    </div>
+</div>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
   
   <script type="text/javascript">
     function getCookie(name) {
@@ -365,9 +372,5 @@
   </script>
   <div id="gct_sample_column" style="width:80%; height:250pt" ></div>
   
-  <ul>
-    <li>イベントA</li>
-    <li>イベントB</li>
-  </ul>
 </body>
 </html>
