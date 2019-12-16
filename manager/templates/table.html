@@ -178,16 +178,27 @@
     //google.setOnLoadCallback(draw);
     function draw(){
         data = google.visualization.arrayToDataTable(d);
+        data2 = google.visualization.arrayToDataTable(d2);
   
         var options = {
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{minValue:0,maxValue:10,gridlined:{count:6 }}
+            vAxis:{title: '時間[h]',minValue:0,maxValue:10,gridlined:{count:6 }}
         };
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
-              [     '', 'nodata'],
+              [     '', 'no data'],
+              [week[0],        0],
+              [week[1],        0],
+              [week[2],        0],
+              [week[3],        0],
+              [week[4],        0],
+              [week[5],        0],
+              [week[6],        0],
+          ]);
+          data2 = google.visualization.arrayToDataTable([
+              [     '', 'no data'],
               [week[0],        0],
               [week[1],        0],
               [week[2],        0],
