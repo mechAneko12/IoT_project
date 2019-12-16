@@ -139,12 +139,14 @@ a:visited { color: #4d4d4d; }
   line-height: 2em;
 }
 
-h1{
+.forward{
   text-align: right;
-  vertical-align:middle;
 }
 
-h2{
+.back{
   text-align: left;
 }
 
+.updown{
+  display: inline-block;
+}
