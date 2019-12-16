@@ -302,7 +302,7 @@
             str = "";
 
           }else if(x === "y"){
-            if (Number(str)>= 450){
+            if (Number(str)<= 450){
               actual_work_time += 3;
             }else{
 
@@ -323,6 +323,8 @@
             }
             str = "";
             
+          }else if (x.includes("b")){
+            str = "";
           }else{
             str = str + x;
           }
