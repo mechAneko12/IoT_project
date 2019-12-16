@@ -139,6 +139,11 @@ a:visited { color: #4d4d4d; }
   line-height: 2em;
 }
 
+
+.updown{
+  display: flex;
+}
+
 .forward{
   text-align: right;
 }
@@ -147,6 +152,3 @@ a:visited { color: #4d4d4d; }
   text-align: left;
 }
 
-.updown{
-  display: flex;
-}
