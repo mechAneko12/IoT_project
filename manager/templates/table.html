@@ -376,7 +376,7 @@
             for (var l = 0; l < num[j]; l++){
               column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
               column_index = column.indexOf(column_name);
-              d[j][column_index+1] += time[j][l][1];
+              d[j][column_index+1] += (time[j][l][1]+time[j][l][2]);
               d2[j+1][1] += time[j][l][1];
               d2[j+1][2] += time[j][l][2];
               if (l === (num[j]-1)){
