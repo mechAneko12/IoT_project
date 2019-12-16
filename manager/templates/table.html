@@ -134,8 +134,8 @@
             column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
             column_index = column.indexOf(column_name);
             d[j][column_index+1] += (time[j][l][1]+time[j][l][2]);
-            d2[j][1] += time[j][1];
-            d2[j][2] += time[j][2];
+            d2[j+1][1] += time[j][1];
+            d2[j+1][2] += time[j][2];
             console.log(num[j]);
             if (l === (num[j]-1)){
               for (var q = 0; q < n; q++){
@@ -274,8 +274,8 @@
               column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
               column_index = column.indexOf(column_name);
               d[j][column_index+1] += (time[j][l][1]+time[j][l][2]);
-              d2[j][1] += time[j][l][1];
-              d2[j][2] += time[j][l][2];
+              d2[j+1][1] += time[j][l][1];
+              d2[j+1][2] += time[j][l][2];
               if (l === (num[j]-1)){
                 for (var q = 0; q < n; q++){
                   d[j][q+1] = Math.round(d[j][q+1]/36)/100;
@@ -373,8 +373,8 @@
               column_name = time[j][l][0];//j曜日のl番目のcolumn名を抽出
               column_index = column.indexOf(column_name);
               d[j][column_index+1] += time[j][l][1];
-              d2[j][1] += time[j][l][1];
-              d2[j][2] += time[j][l][2];
+              d2[j+1][1] += time[j][l][1];
+              d2[j+1][2] += time[j][l][2];
               if (l === (num[j]-1)){
                 for (var q = 0; q < n; q++){
                   d[j][q+1] = Math.round(d[j][q+1]/36)/100;
