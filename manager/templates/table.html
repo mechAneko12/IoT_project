@@ -177,10 +177,7 @@
       google.setOnLoadCallback(draw);
     });
 
-    response = get_tree();
-    response.then(function(data){
-      console.log(data.d);
-    });
+    
 
 
     var i = 0;
@@ -235,7 +232,7 @@
           ]);
           data3 = google.visualization.arrayToDataTable([
               [     '', '時間'],
-              ["no data",   0]
+              ["no data",   100]
           ]);
         }
         
@@ -365,7 +362,7 @@
           ]);
           data3 = google.visualization.arrayToDataTable([
               [     '', '時間'],
-              ["no data",   0]
+              ["no data",   100]
           ]);
         }
         var options = {
@@ -485,7 +482,7 @@
           ]);
           data3 = google.visualization.arrayToDataTable([
               [     '', '時間'],
-              ["no data",   0]
+              ["no data",   100]
           ]);
         }
         var options = {
@@ -526,16 +523,7 @@
             return data;
         });
       }
-    function get_tree(){
-      return $.ajax({
-          url: '/table/tree_get/',
-          type: 'GET',
-          
-          dataType: 'json',
-      }).done(function(data, textStatus, jqXHR) {
-          return data;
-      });
-    }
+  
     
   </script>
   
