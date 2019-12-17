@@ -21,7 +21,7 @@ html, body {
 	font-family: 'Lato', Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 	min-width: 640px;
 	position: relative;
-  background-color: #fff;
+  background-color: #ebebeb;
   background-size: 30px 30px;
   margin: 0 auto;
   background-image: radial-gradient(#C6E6FB 15%, transparent 20%),
@@ -148,7 +148,7 @@ a:visited { color: #4d4d4d; }
 .forward{
   display:table-cell;
   text-align: right;
-  background-color: #f0f0f0;
+  background-color: #ffd6e5;
   border-radius: 20px 3px;
   margin-right: 10px;
 }
@@ -156,7 +156,7 @@ a:visited { color: #4d4d4d; }
 .back{
   display:table-cell;
   margin-right: 10px;
-  background-color: #f0f0f0;
+  background-color: #ffd6e5;
   border-radius: 20px 3px;
 }
 
