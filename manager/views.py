@@ -15,6 +15,9 @@ def index(request):
 def table(request):
     return render(request, 'table.html', {})
 
+def analysis(request):
+    return render(request, 'analysis.html', {})
+
 def tree_get(request):
   da = Data.objects.all()
   data = []

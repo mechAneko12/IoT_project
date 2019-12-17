@@ -25,4 +25,5 @@ urlpatterns = [
     path("table/sql_get/",  views.sql_get, name = "sql_get"),
     path("table/tree_get/",  views.tree_get, name = "tree_get"),
     #path("sql_post/", views.sql_post, name = "sql_post"),
+    path('analysis/', views.analysis, name='analysis'),
 ]
