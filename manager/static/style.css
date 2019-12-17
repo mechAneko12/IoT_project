@@ -156,3 +156,259 @@ a:visited { color: #4d4d4d; }
   margin-right: 10px;
 }
 
+
+
+
+.iconbox{
+  margin: 0 auto 2em; /* 余白 */
+  background: #fef9ed; /* 背景色 */
+  border-radius:4px; /* 角丸 */
+  max-width:600px; /* 横幅 */
+  padding: 0; /* 余白 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2); /* 影 */
+}
+/* ボックスタイトル */
+.iconbox .box-title {
+  font-size: 18px; /* 文字サイズ */
+  background: #fdc44f; /* 背景色 */
+  text-align: center; /* 文字配置 */
+  color: #fff; /* 文字色 */
+  font-weight: bold; /* 文字太さ */
+  letter-spacing: 0.05em; /* 文字間隔 */
+  border-radius:4px 4px 0 0; /* 角丸 */
+  line-height:1.5; /* 行間 */
+  padding:1em 2em; /* 余白 */
+}
+.iconbox .box-title2 {
+  font-size: 18px; /* 文字サイズ */
+  background: #036ffc; /* 背景色 */
+  text-align: center; /* 文字配置 */
+  color: #fff; /* 文字色 */
+  font-weight: bold; /* 文字太さ */
+  letter-spacing: 0.05em; /* 文字間隔 */
+  border-radius:4px 4px 0 0; /* 角丸 */
+  line-height:1.5; /* 行間 */
+  padding:1em 2em; /* 余白 */
+}
+/* 段落の余白リセット */
+.iconbox p {
+  margin: 0;/* 文字の余白リセット */
+  padding: 0; /* 文字の内側余白リセット*/
+}
+/* ボックス 中 */
+.iconbox .iconbox-wrap{
+  display:-webkit-box; /* 配置 */
+  	display:-ms-flexbox; /* 配置 */
+  display:flex; /* 配置 */
+  padding:1.3em 2em; /* 余白 */
+}
+/* コンテンツ */
+.iconbox .iconbox-wrap .box-content{
+   width: 97%;/*横幅 */
+   margin: 0 3% 0 0 !important;/* 余白 */
+   line-height:1.8;/* 行間 */
+  -ms-flex-item-align: center;/* 中央寄せ */
+   align-self: center;/* 中央寄せ */
+}
+/* コンテンツ段落 */
+.iconbox .iconbox-wrap .box-content p{
+  margin-bottom:1em;/*余白 */
+}
+/* アイコン&吹き出し */
+.iconballoon{
+  -ms-flex-item-align: end; /* 下部に配置 */
+  align-self: flex-end; /* 下部に配置 */
+}
+/* アイコン */
+.iconballoon .icon{
+  text-align:center;/* 位置を中央へ */
+}
+/* アイコン画像 */
+.iconballoon .icon img{
+  width: 120px; /* 横幅 */
+  margin:0; /* 余白 */
+}
+/* アイコン画像 (amp)*/
+.iconballoon amp-img{
+  max-width: 120px !important; /* 横幅 */
+  margin:0; /* 余白 */
+}
+/* 吹き出し文字 */
+.iconballoon .balloon p{
+  line-height:1.4; /* 行間 */
+}
+/* 吹き出し */
+.iconballoon .balloon{
+  position:relative; /* 配置 */
+  width:140px; /* 横幅 */
+  background:#fff; /* 背景色 */
+  padding:10px; /* 余白 */
+  text-align:center; /* 中央寄せ */
+  border:2px solid #999;/* 線(太さ 種類　色) */
+  color:#555555;/* 文字色 */
+  font-size:14px;/* 文字サイズ */
+  font-weight:bold;/* 文字太さ */
+  border-radius:10px;/* 角丸 */
+  margin-bottom:10px;/* 余白 */
+  line-height:1.5; /* 行間 */
+}
+/* 吹き出し(三角) */
+.iconballoon .balloon:after,.balloon:before{
+  border: solid transparent;
+  content:'';
+  height:0;
+  width:0;
+  position:absolute;
+  top:100%;
+  left:50%;
+}
+.iconballoon .balloon:after{
+    border-top-width:10px;
+    border-bottom-width:10px;
+    border-left-width:10px;
+    border-right-width:10px;
+    margin-left: -10px;
+    border-top-color:#FFFFFF;
+}
+.iconballoon .balloon:before{
+   border-color:"rgba(153, 153, 153, 0)";
+    border-top-width:12px;
+    border-bottom-width:12px;
+    border-left-width:12px;
+    border-right-width:12px;
+    margin-left: -12px;
+    margin-top: 1px;
+    border-top-color:#999999;
+}
+/*スマホ*/
+@media screen and (max-width: 480px){
+/* ボックスタイトル */
+.iconbox .box-title {
+  font-size: 14px; /* 文字サイズ */
+}
+/* ボックス 中 */
+.iconbox .iconbox-wrap {
+    padding: 1em 1em 1em 1.5em;/* 余白 */
+}
+/* コンテンツ */
+.iconbox .iconbox-wrap .box-content{
+  font-size:12px;/*文字サイズ */
+}
+/* アイコン画像 */
+.iconballoon .icon img{
+  width:80px;/* 横幅 */
+  margin-top:5px;/* 余白 */
+}
+/* アイコン画像(amp) */
+.iconballoon amp-img{
+  max-width:80px !important;/* 横幅 */
+  margin-top:5px;/* 余白 */
+}
+/* 吹き出し */
+.iconballoon .balloon{
+  width:80px;/* 横幅 */
+  font-size:10px;/* 文字サイズ */
+  padding: 1em 0;/* 余白 */
+  border: 1px solid #999;/* 線(太さ 種類 色) */
+}
+/* 吹き出し(三角) */
+.iconballoon .balloon:after {
+    border-top-width: 12px;
+    border-bottom-width: 10px;
+    border-left-width: 11px;
+    border-right-width: 11px;
+    margin-left: -11px;
+    border-top-color: #FFFFFF;
+}
+}
+/************************************
+** 箇条書き(点)
+************************************/
+/* 箇条書き */
+.iconbox .list {
+  list-style: none;/* 行頭記号削除  */
+  padding: 0 !important;/* 余白リセット */
+  margin: 0 !important;/* 余白リセット */
+  border:none;/* 線リセット */
+}
+/* 箇条書き 行 */
+.iconbox .list li { 
+  position: relative;/* 行頭記号の配置  */
+  margin: 0 0 0.5em 0 !important;/* 余白  */
+  padding: 0 0 0.5em 1.4em !important;/* 余白 */
+  line-height:1.8;/* 行間 */
+}
+/* 箇条書き 行頭記号 */
+.iconbox .list li:before {
+  background-color: #ffa952; /* 記号色 */
+  position: absolute; /* 行頭記号の配置 */
+  content: ''; /* 空文字 */
+  top:13px; /* 上からの距離 */
+  left: 0; /* 左からの距離 */
+  width: 7px; /* 横幅 */
+  height: 7px; /* 縦幅 */
+  border-radius: 4px; /*角丸 */
+}
+/* 箇条書き 行頭記号リセット */
+.iconbox .list-number li:after{
+	content:'';
+}
+/*スマホ*/
+@media screen and (max-width: 480px){
+  /* 箇条書き 行頭記号*/
+   .iconbox .list li:before{
+     top:8px;/* 上からの距離 */
+   }
+}
+/************************************
+** 箇条書き(番号)
+************************************/
+/* 箇条書き(番号) */
+.iconbox .list-number{
+   counter-reset:number; /* 番号リセット */
+   list-style: none !important;/* 行頭番号削除) */
+   padding:0 !important;/* 余白リセット */
+   margin:0 !important;/* 余白リセット */
+   border:none !important;/* 線リセット */
+}
+/* 箇条書き(番号) 行 */
+.iconbox .list-number li {
+   position: relative;/* 配置 */
+   margin:0.5em 0 !important;/* 余白 */
+   max-width:500px; /* 横幅 */
+   padding: 0 0 0.5em 1.8em !important;/* 余白 */
+   line-height:1.8;/* 行間 */
+}
+/* 箇条書き(番号) 行頭番号 */
+.iconbox .list-number li:before {
+   counter-increment: number;/* 番号 */
+   content: counter(number);/* 番号 */
+   background-color: #fdc44f; /* 背景色 */
+   color: #fff; /* 番号色 */
+   position: absolute;/* 配置 */
+   font-weight:bold;/* 文字太さ */
+   font-size: 14px;/* 文字大きさ */
+   border-radius: 50%;/* 角丸 */
+   left: 0;/* 左からの距離 */
+   top:4px;/* 上からの距離 */
+   width: 22px;/* 横幅 */
+   height: 22px;/* 縦幅 */
+   line-height: 22px;/* 行間 */
+   text-align:center;/* 中央寄せ */
+}
+/*スマホ*/
+@media screen and (max-width: 480px){
+  /* 箇条書き(番号) 行 */
+  .iconbox .list-number li{
+     padding: 0 0 0.5em 2em !important;/* 余白 */
+  }
+  /* 箇条書き(番号) 行頭番号 */
+  .iconbox .list-number li:before {
+    font-size:10px;/* 文字大きさ */
+    width: 18px;/* 横幅 */
+    height: 18px;/* 縦幅 */
+    line-height: 18px;/* 行間 */
+    top:2px;/* 上からの距離 */
+  }
+}
+
