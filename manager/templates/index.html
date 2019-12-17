@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <div class="title margin">
-        <p id="title">BLE(CORS-ON)</p>
+        <p id="title">Smart Pencil(CORS-ON)</p>
       </div>
       <div class="contents margin">
         <button id="startNotifications" class = "button">Bluetooth接続</button>
@@ -24,6 +24,8 @@
         <div id="accelerometer" class = graph style="width:90%; height:200px;"></div>
             <li class="record">
               <a href="{% url 'table' %}">学習記録</a>
+            </li>
+            <li class="record"></li>
               <a href="{% url 'analysis' %}">学習分析</a>
             </li>
         <img class = "img_sample" height="150" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/Rotating_earth__large_wy9cfd.gif" width="200"/>
