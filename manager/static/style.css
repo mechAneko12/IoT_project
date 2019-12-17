@@ -167,13 +167,8 @@ a:visited { color: #4d4d4d; }
   padding: 0; /* 余白 */
   box-shadow: 0 1px 3px rgba(0, 0, 0, .2); /* 影 */
 }
-.iconbox2{
-  margin: 0 auto 2em; /* 余白 */
-  background: #f2fbff; /* 背景色 */
-  border-radius:4px; /* 角丸 */
-  max-width:600px; /* 横幅 */
-  padding: 0; /* 余白 */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .2); /* 影 */
+.iconbox-blue{
+  background: #f2fbff !important; /* 背景色 */
 }
 /* ボックスタイトル */
 .iconbox .box-title {
