@@ -8,16 +8,16 @@
 
 <body>
   <div class="container">
-    <nav>
-        <ul>
-            <li class=”current”><a href=”#”>Home</a></li>
-            <li><a href=”#”>学習記録</a></li>
-            <li><a href=”#”>学習分析</a></li>
-        </ul>
-    </nav>
     <div class="title margin">
       <p id="title">学習分析</p>
     </div>
+    <nav>
+        <ul>
+            <li class="current"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'table' %}">学習記録</a></li>
+            <li><a href="{% url 'analysis' %}">学習分析</a></li>
+        </ul>
+    </nav>
     <div class="contents margin">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>

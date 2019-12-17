@@ -12,6 +12,13 @@
       <div class="title margin">
         <p id="title">Smart Pencil(CORS-ON)</p>
       </div>
+      <nav>
+          <ul>
+              <li class="current"><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'table' %}">学習記録</a></li>
+              <li><a href="{% url 'analysis' %}">学習分析</a></li>
+          </ul>
+      </nav>
       <div class="contents margin">
         <button id="startNotifications" class = "button">Bluetooth接続</button>
         <form>
