@@ -203,7 +203,8 @@
             title: '項目別作業時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{title: '時間[h]',minValue:0,maxValue:10,gridlined:{count:6 }}
+            vAxis:{title: '時間[h]',minValue:0,maxValue:10,gridlined:{count:6 }},
+            backgroundColor: { fill: "#f7f7f7" }
         };
 
         for (s = 1; s < 8; s++){
@@ -240,7 +241,8 @@
         
         var options3 = {
           title: '学習効率',
-          is3D: true
+          is3D: true,
+          backgroundColor: { fill: "#f7f7f7" }
         };
   
         chart = new google.visualization.ColumnChart(document.getElementById('gct_sample_column'));
@@ -371,11 +373,13 @@
             title: '項目別学習時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }}
+            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }},
+            backgroundColor: { fill: "#f7f7f7" }
         };
         var options3 = {
           title: '学習効率',
-          is3D: true
+          is3D: true,
+          backgroundColor: { fill: "#f7f7f7" }
         };
         chart.draw(data,options);
         chart2.draw(data2,options);
@@ -491,11 +495,13 @@
             title: '項目別学習時間',
             hAxis: {title: '日付'},
             isStacked: true,
-            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }}
+            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }},
+            backgroundColor: { fill: "#f7f7f7" }
         };
         var options3 = {
           title: '学習効率',
-          is3D: true
+          is3D: true,
+          backgroundColor: { fill: "#f7f7f7" }
         };
         chart.draw(data,options);
         chart2.draw(data2,options);
