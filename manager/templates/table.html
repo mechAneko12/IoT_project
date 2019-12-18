@@ -243,7 +243,17 @@
               ["no data",   100]
           ]);
         }
-        
+        var options2 = {
+            title: '日別の学習効率',
+            hAxis: {title: '日付'},
+            isStacked: true,
+            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }}/*,
+            backgroundColor: {
+                                  fill: "#f0f0f0",
+                                  stroke: '#523335',
+                                  strokeWidth: 3
+                              }*/
+        };
         var options3 = {
           title: '学習効率',
           is3D: true/*,
@@ -258,7 +268,7 @@
         chart2 = new google.visualization.ColumnChart(document.getElementById('column2'));
         chart3 = new google.visualization.PieChart(document.getElementById('pie'));
         chart.draw(data, options);
-        chart2.draw(data2,options);
+        chart2.draw(data2,options2);
         chart3.draw(data3,options3);
   
         
@@ -389,6 +399,17 @@
                                   strokeWidth: 3
                               }*/
         };
+        var options2 = {
+            title: '日別の学習効率',
+            hAxis: {title: '日付'},
+            isStacked: true,
+            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }}/*,
+            backgroundColor: {
+                                  fill: "#f0f0f0",
+                                  stroke: '#523335',
+                                  strokeWidth: 3
+                              }*/
+        };
         var options3 = {
           title: '学習効率',
           is3D: true/*,
@@ -399,7 +420,7 @@
                               }*/
         };
         chart.draw(data,options);
-        chart2.draw(data2,options);
+        chart2.draw(data2,options2);
         chart3.draw(data3,options3);
       });
     }
@@ -519,6 +540,17 @@
                                   strokeWidth: 3
                               }*/
         };
+        var options2 = {
+            title: '日別の学習効率',
+            hAxis: {title: '日付'},
+            isStacked: true,
+            vAxis:{title: "時間[h]",minValue:2,maxValue:10,gridlined:{count:6 }}/*,
+            backgroundColor: {
+                                  fill: "#f0f0f0",
+                                  stroke: '#523335',
+                                  strokeWidth: 3
+                              }*/
+        };
         var options3 = {
           title: '学習効率',
           is3D: true/*,
@@ -529,7 +561,7 @@
                               }*/
         };
         chart.draw(data,options);
-        chart2.draw(data2,options);
+        chart2.draw(data2,options2);
         chart3.draw(data3,options3);
       });
     }
