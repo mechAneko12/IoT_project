@@ -20,6 +20,8 @@ def analysis(request):
     return render(request, 'analysis.html', {})
 
 def ml_get():
+  d = {"d": "a"}
+  return JsonResponse(d)
   data =  {
           "GlobalParameters": {
   }
