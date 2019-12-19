@@ -71,10 +71,8 @@
     response.then(function(data){
       console.log(data.d1);
       console.log(data.d2);
-      var l1 = $(document.createElement("#list1"));
-      l1.html(data.d1);
-      var l2 = $(document.createElement("#list2"));
-      l2.html(data.d2);
+      $("#list1").text(data.d1);
+      $("#list2").text(data.d2);
     });
 
     response = get_tree();
