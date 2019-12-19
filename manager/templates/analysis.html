@@ -31,7 +31,6 @@
                 <ul class="list">
                     <li>リスト1</li>
                     <li>リスト2</li>
-                    <li>リスト3</li>
                 </ul>
             </div>
             <div class="iconballoon">
@@ -68,6 +67,11 @@
   
   <script type="text/javascript">
 
+    response = get_ml();
+    response.then(function(data){
+      console.log(data.d);
+    });
+
     response = get_tree();
     response.then(function(data){
       console.log(data.d);
@@ -77,6 +81,17 @@
     function get_tree(){
       return $.ajax({
           url: '/table/tree_get/',
+          type: 'GET',
+          
+          dataType: 'json',
+      }).done(function(data, textStatus, jqXHR) {
+          return data;
+      });
+    }
+
+    function get_ml(){
+      return $.ajax({
+          url: '/table/ml_get/',
           type: 'GET',
           
           dataType: 'json',

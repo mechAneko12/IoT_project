@@ -24,6 +24,9 @@ urlpatterns = [
     path('table/', views.table, name='table'),
     path("table/sql_get/",  views.sql_get, name = "sql_get"),
     path("table/tree_get/",  views.tree_get, name = "tree_get"),
+
+    path("table/ml_get/",  views.ml_get, name = "ml_get"),
+
     #path("sql_post/", views.sql_post, name = "sql_post"),
     path('analysis/', views.analysis, name='analysis'),
 ]

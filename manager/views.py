@@ -6,6 +6,7 @@ import datetime
 from django.core import serializers
 import json
 import numpy as np
+import urllib.request
 
 # Create your views here.
 def index(request):
@@ -17,6 +18,29 @@ def table(request):
 
 def analysis(request):
     return render(request, 'analysis.html', {})
+
+def ml_get():
+  data =  {
+          "GlobalParameters": {
+  }
+      }
+
+  body = str.encode(json.dumps(data))
+
+  url = 'https://japaneast.services.azureml.net/workspaces/3927cd49e366419c8a640b70fc10e558/services/1e413a7026f64a929bff123a396fbf4d/execute?api-version=2.0&details=true'
+  api_key = 'iSjyfHHP5YNIoTUNoK6P2NdEqCy6WUcTEEb6FW8CYfbGzv2sMdZpEjhpCJSirbTz744nTCrbVYH3A5fopSNrrw==' # Replace this with the API key for the web service
+  headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+  req = urllib.request.Request(url, body, headers) 
+
+  response = urllib.request.urlopen(req)
+
+  result = response.read()
+  d = json.loads(result.decode())
+
+  j = {"d1": d["Results"]["output1"]["value"]["Values"][0][0], "d2": d["Results"]["output1"]["value"]["Values"][1][0]}
+  return JsonResponse(j)
+
 
 def tree_get(request):
   da = Data.objects.all()
