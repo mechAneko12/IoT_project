@@ -29,6 +29,7 @@
            
           <button id = "name" class="button">送信</button>
         </form>
+        <div id = "name_hyouji"></div>
         <hr>
         <div id="accelerometer" class = graph style="width:90%; height:200px;"></div>
             <li class="record">
@@ -423,6 +424,7 @@
       
           // 入力フォームの値を取得
           var name_temp = document.getElementById("textForm").value;
+          document.getElementById("name_hyouji").innerHTML = name_temp;
           console.log(name_temp);
           if (name != "others"){
             name = name_temp;
