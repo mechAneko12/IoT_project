@@ -29,8 +29,8 @@
         <div class="iconbox-wrap">
             <div class="box-content">
                 <ul class="list">
-                    <li>リスト1</li>
-                    <li>リスト2</li>
+                    <li id = "list1">リスト1</li>
+                    <li id = "list2">リスト2</li>
                 </ul>
             </div>
             <div class="iconballoon">
@@ -71,6 +71,10 @@
     response.then(function(data){
       console.log(data.d1);
       console.log(data.d2);
+      var l1 = document.getElementById("list1");
+      l2.innerHTML = data.d2;
+      var l2 = document.getElementById("list2");
+      l2.innerHTML = data.d2;
     });
 
     response = get_tree();
