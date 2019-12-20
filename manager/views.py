@@ -99,7 +99,7 @@ def tree_get(request):
           max_good = clf.tree_.value[i][0][1]
           index = i
   
-  return JsonResponse({"d": i})
+  return JsonResponse({"d": index})
 
   t = []
   while index !=0:
