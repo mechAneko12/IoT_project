@@ -94,30 +94,30 @@ def tree_get(request):
   max_good = 0
   index = 0
   for i in range(n-1,-1,-1):
-      if clf.tree_.feature[i] == -2:
-          if clf.tree_.value[i][0][1] > max_good:
-              max_good = clf.tree_.value[i][0][1]
-              index = i
+    if clf.tree_.feature[i] == -2:
+      if clf.tree_.value[i][0][1] > max_good:
+          max_good = clf.tree_.value[i][0][1]
+          index = i
 
   t = []
   while index !=0:
-      l = []
-      for j in range(0,n):
-          if clf.tree_.children_left[j] == index:
-              l.append (j)
-              l.append(clf.tree_.feature[j])
-              l.append(clf.tree_.threshold[j])
-              l.append(1)
-              index = j
-              break
-          if clf.tree_.children_right[j] == index:
-              l.append (j)
-              l.append(clf.tree_.feature[j])
-              l.append(clf.tree_.threshold[j])
-              l.append(-1)
-              index = j
-              break
-      t.append(l)
+    l = []
+    for j in range(0,n):
+      if clf.tree_.children_left[j] == index:
+          l.append (j)
+          l.append(clf.tree_.feature[j])
+          l.append(clf.tree_.threshold[j])
+          l.append(1)
+          index = j
+          break
+      if clf.tree_.children_right[j] == index:
+          l.append (j)
+          l.append(clf.tree_.feature[j])
+          l.append(clf.tree_.threshold[j])
+          l.append(-1)
+          index = j
+          break
+    t.append(l)
 
   print(t)
   s = ""
@@ -125,61 +125,61 @@ def tree_get(request):
   week = ["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
   time = ["0時から3時の時間帯","3時から6時の時間帯","6時から9時の時間帯","9時から12時の時間帯","12時から15時の時間帯","15時から18時の時間帯","18時から21時の時間帯","21時から24時の時間帯"]
   for k in range(len(t)-1,-1,-1):
-      if t[k][1] == 0:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以下"
-          else:
-              s3 += "以上"
-          s += "照度は"+str(t[k][2])+s3 + "、"
-      elif t[k][1] == 2:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以下"
-          else:
-              s3 += "以上"
-          s += "部屋の最高温度は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
-      elif t[k][1] == 3:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以下"
-          else:
-              s3 += "以上"
-          s += "部屋の最低温度は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
-      elif t[k][1] == 4:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以上"
-          else:
-              s3 += "以下"
-          s += "室内外の温度差は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
-      elif t[k][1] == 6:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "雨の日、"
-          else:
-              s3 += "晴れの日、"
-          s2 += s3
-      elif t[k][1]>= 7 and t[k][1]<= 13:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以外、"
-          else:
-              s3 += "、"
-          s2 += week[t[k][1]-7] + s3
-      elif t[k][1]>= 14:
-          s3 = ""
-          if t[k][3] == 1:
-              s3 += "以外、"
-          else:
-              s3 += "、"
-          s2 += time[t[k][1]-14] + s3
+    if t[k][1] == 0:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以下"
+      else:
+        s3 += "以上"
+      s += "照度は"+str(t[k][2])+s3 + "、"
+    elif t[k][1] == 2:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以下"
+      else:
+        s3 += "以上"
+      s += "部屋の最高温度は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
+    elif t[k][1] == 3:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以下"
+      else:
+        s3 += "以上"
+      s += "部屋の最低温度は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
+    elif t[k][1] == 4:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以上"
+      else:
+        s3 += "以下"
+      s += "室内外の温度差は"+str(math.floor(t[k][2]*10)/10)+s3 + "、"
+    elif t[k][1] == 6:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "雨の日、"
+      else:
+        s3 += "晴れの日、"
+      s2 += s3
+    elif t[k][1]>= 7 and t[k][1]<= 13:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以外、"
+      else:
+        s3 += "、"
+      s2 += week[t[k][1]-7] + s3
+    elif t[k][1]>= 14:
+      s3 = ""
+      if t[k][3] == 1:
+        s3 += "以外、"
+      else:
+        s3 += "、"
+      s2 += time[t[k][1]-14] + s3
   s = s[:-1]
   s2 = s2[:-1]
   s += "が良いでしょう。"
   if len(s2)>= 5:
-      s2 += "が最適です。"
-      s += s2
+    s2 += "が最適です。"
+    s += s2
   d = {"list": str(t), "d": s, "d1": str(d)}
   return JsonResponse(d)
 
