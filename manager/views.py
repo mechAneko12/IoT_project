@@ -98,8 +98,10 @@ def tree_get(request):
       if clf.tree_.value[i][0][1] > max_good:
           max_good = clf.tree_.value[i][0][1]
           index = i
+    if clf.tree_.feature[i] != -2:
+      break
   
-  return JsonResponse({"d": index})
+  #return JsonResponse({"d": index})
 
   t = []
   while index !=0:
