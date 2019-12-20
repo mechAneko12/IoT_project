@@ -84,7 +84,7 @@ def tree_get(request):
   target = np.array(target)
   d = {"data": data, "target": target, 'target_names': np.array(["bad","good"], dtype='<U10'), 'feature_names': ['lux','temp_outside','temp_max','temp_min','temp_gap','temp_self','weather','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','timezone_00_03','timezone_03_06','timezone_06_09','timezone_09_12','timezone_12_15','timezone_15_18','timezone_18_21','timezone_21_24']}
   
-  clf = tree.DecisionTreeClassifier()
+  clf = tree.DecisionTreeClassifier(max_depth=5)
   clf = clf.fit(d["data"], d["target"])
   #predicted = clf.predict(d["data"])
   #print(sum(predicted == d["target"]) / len(d["target"]))
@@ -184,7 +184,7 @@ def tree_get(request):
   if len(s2)>= 5:
     s2 += "が最適です。"
     s += s2
-  d = {"list": str(t), "d": s, "d1": str(d)}
+  d = {"list": str(t), "d": s, "d1": str(clf.tree_.feature)}
   return JsonResponse(d)
 
 def sql_get(request):
