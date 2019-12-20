@@ -214,6 +214,7 @@
 
       var XAxisCharacteristic;
 
+      var first = 0;
       var str = "";
       var temp_gap = 0;
       var temp_max = 0;
@@ -300,7 +301,9 @@
               }else{
                 temp_gap = temp_min - temp_outside;
               }
-              str = "";
+              if (first != 0){
+                str = "";
+              }
               console.log("temp_max" + String(temp_max));
               console.log("temp_gap" + String(temp_gap));
             }
@@ -312,6 +315,7 @@
                 temp_gap = temp_outside - temp_min;
               }
               str = "";
+              first = 1;
               console.log("temp_min" + String(temp_min));
               console.log("temp_gap" + String(temp_gap));
             }
