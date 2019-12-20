@@ -180,7 +180,7 @@ def tree_get(request):
   if len(s2)>= 5:
       s2 += "が最適です。"
       s += s2
-  d = {"list": str(t), "d": s, "d1": d}
+  d = {"list": str(t), "d": s, "d1": str(d)}
   return JsonResponse(d)
 
 def sql_get(request):
