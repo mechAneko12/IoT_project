@@ -184,7 +184,7 @@ def tree_get(request):
   if len(s2)>= 5:
     s2 += "が最適です。"
     s += s2
-  d = {"list": str(t), "d": s, "d1": str(clf.tree_.feature)}
+  d = {"list": str(t), "d": s, "d1": str(clf.tree_.feature),"d2": str(clf.tree_.value)}
   return JsonResponse(d)
 
 def sql_get(request):
