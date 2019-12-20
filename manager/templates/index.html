@@ -301,6 +301,8 @@
                 temp_gap = temp_min - temp_outside;
               }
               str = "";
+              console.log("temp_max" + String(temp_max));
+              console.log("temp_gap" + String(temp_gap));
             }
             if (temp_min >= Number(str)){
               temp_min = Number(str);
@@ -310,12 +312,14 @@
                 temp_gap = temp_outside - temp_min;
               }
               str = "";
+              console.log("temp_min" + String(temp_min));
+              console.log("temp_gap" + String(temp_gap));
             }
             
           } else if(x==="b"){
             temp_self = Number(str);
             str = "";
-
+            console.log("self" + String(temp_self));
           }else if(x === "y"){
             if (Number(str)<= 450){
               actual_work_time += 3;
@@ -337,7 +341,8 @@
               azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
             }
             str = "";
-            
+            console.log("actual_work_time" + String(actual_work_time));
+            console.log("work_time" + String(work_time));
           }else if (x.length>=2 && x.includes("b")){
             str = "";
           }else{
@@ -345,11 +350,12 @@
           }
 
         } 
+        /*
         gaccel.addRow([new Date(), temp_max]);
         if(gaccel.getNumberOfRows() > 100){
           gaccel.removeRow(0);
         }
-        chart.draw(gaccel, accOptions);
+        chart.draw(gaccel, accOptions);*/
       }
 
       function azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency){
