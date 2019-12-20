@@ -7,6 +7,7 @@ from django.core import serializers
 import json
 import numpy as np
 import urllib.request
+from sklearn import tree
 
 # Create your views here.
 def index(request):
