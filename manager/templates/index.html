@@ -307,7 +307,7 @@
               console.log("temp_max" + String(temp_max));
               console.log("temp_gap" + String(temp_gap));
             }
-            if (temp_min >= Number(str)){
+            if (temp_min >= Number(str) && str != ""){
               temp_min = Number(str);
               if(Math.abs(temp_outside-temp_max) >= Math.abs(temp_outside-temp_min)){
                 temp_gap = temp_max - temp_outside;
