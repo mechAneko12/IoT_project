@@ -98,6 +98,8 @@ def tree_get(request):
           if clf.tree_.value[i][0][1] > max_good:
               max_good = clf.tree_.value[i][0][1]
               index = i
+      if clf.tree_.feature[i] != -2 and max_good> 5:
+        break
 
   t = []
   while index !=0:
