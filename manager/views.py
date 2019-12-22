@@ -217,9 +217,15 @@ def sql_get(request):
       day.append(['no',0,0])
     time.append(day)
     num.append(n)
-    
+
+    thismonth= 0
+    data = Data.objects.filter(date_str__contains = week[0])
+    if data.exists():
+      for l in data:
+        thismonth += l.work_time
+    thismonth = round(thismonth)
   
-  d = {"time": time,"num": num, "column": column}
+  d = {"time": time,"num": num, "column": column, "thismonth": thismonth}
   d = {"d": str(d)}
   #"sun": time[0], "mon": time[1],"tue": time[2],"wed": time[3], "thu": time[4], "fri": time[5], "sat": time[6]
   return JsonResponse(d)

@@ -119,6 +119,8 @@
     var d2;
     var d3;
 
+    var month_worktime;
+
 
     response = get_sql(week);
     response.then(function(data){
@@ -130,6 +132,7 @@
       time = JSON.parse(result).time;
       num = JSON.parse(result).num;
       column = JSON.parse(result).column;
+      month_worktime = JSON.parse(result).thismonth;
       var n = column.length;
       var column_name;
       var column_index;
@@ -238,6 +241,7 @@
           week_sum += (d2[q][1]+d2[q][2])
         }
         document.getElementById("thisweek").innerHTML = String(Math.round(week_sum))+ "時間";
+        document.getElementById("thismonth").innerHTML = String(Math.round(month_worktime))+ "時間";
 
         for (s = 1; s < 8; s++){
           d3[1][1] += d2[s][1];
