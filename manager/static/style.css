@@ -149,6 +149,10 @@ a:visited { color: #4d4d4d; }
   border-radius: 8px;
 }
 
+#neko{
+  text-align: center;
+}
+
 .updown{
   display: table;
   width:100%;
