@@ -140,10 +140,13 @@ a:visited { color: #4d4d4d; }
 }
 
 #time_recorder{
-  border-color: #61c5bb;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: solid 3px #61c5bb;
   font-size: 21px;
   font-weight: 700;
   text-align: center;
+  border-radius: 8px;
 }
 
 .updown{
