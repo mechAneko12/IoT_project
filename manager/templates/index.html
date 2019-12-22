@@ -239,6 +239,7 @@
 
       let serviceUuid = "442f1570-8a00-9a28-cbe1-e1d4212d53eb";
       let XAxisUuid = "442f1571-8a00-9a28-cbe1-e1d4212d53eb";
+      /*
       google.charts.load('current', {'packages':['line']});
       google.charts.setOnLoadCallback(drawAccelChart);
       var accOptions = {
@@ -248,8 +249,8 @@
         vAxis: { minValue: -1000, maxValue: 2000 },
       };
       var gaccel, chart;
-
-      var device;
+      */
+      var bluetoothDevice;
 
       function beginBLE(){
         
@@ -260,6 +261,7 @@
         navigator.bluetooth.requestDevice({acceptAllDevices:true, optionalServices: [serviceUuid]})
           .then(device => {
             console.log("Connecting to device");
+            bluetoothDevice = device;
             return device.gatt.connect();
           })
           .then(server => {
@@ -441,12 +443,12 @@
         console.log("disconnect");
         event.stopPropagation();
         event.preventDefault();
-        if (!device) {
+        if (!bluetoothDevice) {
           return;
         }
         log('Disconnecting from Bluetooth Device...');
-        if (device.gatt.connected) {
-          device.gatt.disconnect();
+        if (bluetoothDevice.gatt.connected) {
+          bluetoothDevice.gatt.disconnect();
         } else {
           log('> Bluetooth Device is already disconnected');
         }
@@ -633,7 +635,7 @@
             return data;
         });
       }
-
+      /*
       function drawAccelChart() {
         gaccel = new google.visualization.DataTable();
         gaccel.addColumn('datetime', 'Time');
@@ -641,7 +643,7 @@
         gaccel.addRow([new Date(), 1]);
         chart = new google.charts.Line(document.getElementById('accelerometer'));
         chart.draw(gaccel, accOptions);
-      }
+      }*/
     </script>
     
     </div>
