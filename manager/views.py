@@ -219,11 +219,11 @@ def sql_get(request):
     num.append(n)
 
     thismonth= 0
-    data = Data.objects.filter(date_str__contains = week[0])
+    data = Data.objects.filter(date_str__contains = week[0][:-2])
     if data.exists():
       for l in data:
         thismonth += l.work_time
-    thismonth = round(thismonth)
+    thismonth = round(thismonth/3600)
   
   d = {"time": time,"num": num, "column": column, "thismonth": thismonth}
   d = {"d": str(d)}
