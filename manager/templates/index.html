@@ -23,6 +23,7 @@
         </nav>
         </div>
         <button id="startNotifications" class = "button">Bluetooth接続</button>
+        <button id="disconnect" class = "button">Bluetooth切断</button>
         <form>
           <label for="textForm">学習内容を入力してください: </label>
           <input type="text" id="textForm">
@@ -248,6 +249,8 @@
       };
       var gaccel, chart;
 
+      var device;
+
       function beginBLE(){
         
 
@@ -432,6 +435,20 @@
         console.log(response);
         //azure_insert(date_str, hour, name , lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
         beginBLE();
+      });
+
+      document.querySelector('#disconnect').addEventListener('click', function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        if (!device) {
+          return;
+        }
+        log('Disconnecting from Bluetooth Device...');
+        if (device.gatt.connected) {
+          device.gatt.disconnect();
+        } else {
+          log('> Bluetooth Device is already disconnected');
+        }
       });
 
       var button = document.getElementById("name");
