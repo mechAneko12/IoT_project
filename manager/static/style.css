@@ -166,6 +166,7 @@ table {
   width: 640px;
   border-spacing: 0;
   margin: 0 auto;
+  padding: 5px;
 }
 th, td {
   border-bottom: 1px solid #4f4d47;
