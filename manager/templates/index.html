@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <div class="title margin">
-        <p id="title">Smart Pencil(CORS-ON)</p>
+        <p id="title">Smart Pencil</p>
       </div>
       <div class="contents margin">
         <div>
@@ -38,7 +38,7 @@
             <li class="record">
               <a href="{% url 'analysis' %}">学習分析</a>
             </li>
-        <img class = "img_sample" height="150" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/Rotating_earth__large_wy9cfd.gif" width="200"/>
+        <img name = "blue" class = "img_sample" height="150" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/Rotating_earth__large_wy9cfd.gif" width="200"/>
     
       </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <script>
       var id =-1;
+
+      document.blue.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/tree2.png";
 
       const date = new Date();
       const year = date.getFullYear() ;	// 年
