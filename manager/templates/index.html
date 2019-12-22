@@ -31,6 +31,9 @@
         </form>
         <div id = "name_hyouji"></div>
         <hr>
+        <div id = "time_recorder">
+          <p id = "time_record"></p>
+        </div>
         <div id="accelerometer" class = graph style="width:90%; height:200px;"></div>
             <li class="record">
               <a href="{% url 'table' %}">学習記録</a>
@@ -212,6 +215,8 @@
         return axios.post("https://addition-entities.azurewebsites.net/api/insertorreplace",param);
       }
       add();*/
+
+      var time_record = 0;
       
 
       var XAxisCharacteristic;
@@ -337,6 +342,8 @@
             if(sec < 60){
               sec += 3;
             }else{
+              time_record += 1;
+              document.getElementById("time_record").innerHTML = "ただいまの学習時間: "+ String(time_record) + "分";
               sec = 0;
               update_sql(id, date_str, name,  lux, temp_outside, temp_max,  temp_min, temp_gap, temp_self, weather, week,timezone, work_time, actual_work_time, efficiency);
             }

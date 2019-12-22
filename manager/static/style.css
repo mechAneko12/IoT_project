@@ -139,6 +139,13 @@ a:visited { color: #4d4d4d; }
   line-height: 2em;
 }
 
+#time_record{
+  border-color: #61c5bb;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .updown{
   display: table;
   width:100%;
