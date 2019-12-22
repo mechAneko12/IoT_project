@@ -446,12 +446,8 @@
         if (!bluetoothDevice) {
           return;
         }
-        log('Disconnecting from Bluetooth Device...');
-        if (bluetoothDevice.gatt.connected) {
-          bluetoothDevice.gatt.disconnect();
-        } else {
-          log('> Bluetooth Device is already disconnected');
-        }
+        bluetoothDevice.gatt.disconnect();
+        
       });
 
       var button = document.getElementById("name");
