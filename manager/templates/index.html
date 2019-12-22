@@ -438,6 +438,7 @@
       });
 
       document.querySelector('#disconnect').addEventListener('click', function(event) {
+        console.log("disconnect");
         event.stopPropagation();
         event.preventDefault();
         if (!device) {
