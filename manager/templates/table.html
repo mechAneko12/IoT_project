@@ -37,7 +37,7 @@
               <tr>
                   <th>今日</th>
                   <th>1週間</th>
-                  <th>今月</th>
+                  <th>1か月</th>
                   <th>累計</th>
               </tr>
           </thead>
@@ -56,7 +56,7 @@
     <div class = "eff">
       <div class = "eval" id="pie" style="width:70%; height:200pt" ></div>
       <div class = "eval" >    
-        <img name = "ritsu" width=150 src ="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/>
+        <img name = "ritsu" width=200 src ="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/>
       </div>
     </div>
     </div>
@@ -600,7 +600,7 @@
         
         document.getElementById("thisweek").innerHTML = String(Math.round(week_sum))+ "時間";
         document.getElementById("thismonth").innerHTML = month_worktime+ "時間";
-        
+
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
               [     '', 'no data'],
