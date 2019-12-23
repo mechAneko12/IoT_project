@@ -119,6 +119,10 @@ hr{
   background-color: #f0f0f0;
 }
 
+.button_cover{
+  text-align: center;
+}
+
 
 .button_on{
   border-width: 1px;
