@@ -125,7 +125,7 @@ hr{
 
 
 .button_on{
-  border-width: 1px;
+  border-width: 3px;
   border-color: #e6e6e6;
   border-style: solid;
   background-color: #b7e4ed;
@@ -143,7 +143,7 @@ hr{
 }
 
 .button_off{
-  border-width: 1px;
+  border-width: 3px;
   border-color: #e6e6e6;
   border-style: solid;
   background-color: #ffb5b5;
@@ -162,7 +162,7 @@ hr{
 
 .form_send{
   text-align: center;
-  padding: 0px 30px;
+  padding: 0px 50px 0px 50px;
 }
 
 
