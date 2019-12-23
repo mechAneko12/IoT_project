@@ -119,6 +119,44 @@ hr{
   background-color: #f0f0f0;
 }
 
+
+.button_on{
+  border-width: 1px;
+  border-color: #e6e6e6;
+  border-style: solid;
+  background-color: #b7e4ed;
+  padding: 5px 20px 5px 20px;
+  color: #4d4d4d;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 20px;
+}
+.button_on:hover{
+  border-color: #3b3b3b;
+}
+.button_on:active{
+  background-color: #f0f0f0;
+}
+
+.button_off{
+  border-width: 1px;
+  border-color: #e6e6e6;
+  border-style: solid;
+  background-color: #ff8787;
+  padding: 5px 20px 5px 20px;
+  color: #4d4d4d;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 20px;
+}
+.button_off:hover{
+  border-color: #3b3b3b;
+}
+.button_off:active{
+  background-color: #f0f0f0;
+}
+
+
 .record{
   padding: 5px 20px 5px 20px;
 }
