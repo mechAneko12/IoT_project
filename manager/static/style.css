@@ -77,30 +77,7 @@ hr{
   padding: 0px 10px 0px 10px;
 }
 
-@media screen and (max-width: 480px){
-  html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Lato', Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-    max-width: 480px;
-    position: relative;
-    background-color: #f0f0f0;
-    background-size: 30px 30px;
-    margin: 0 auto;
-    background-image: radial-gradient(#C6E6FB 15%, transparent 20%),
-                      radial-gradient(#b3f2db 15%, transparent 20%);
-    background-position: 0 0, 15px 15px;
-  }
-  .container{
-    margin: auto;
-    width: 100%;
-    min-height: 100%;
-    max-width: 300px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
-    background-color: #f0f0f0;
-    position: relative;
-  }
-}
+
 
 .button{
   border-width: 1px;
