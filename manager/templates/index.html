@@ -335,8 +335,9 @@
           }else if(x === "y"){
             if (Number(str)<= 450){
               actual_work_time += 3;
+              document.blue.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065067/kuma_kjalct.gif";
             }else{
-
+              document.blue.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065068/pika_kvxid4.gif";
             }
             work_time += 3;
             efficiency = actual_work_time/work_time;
@@ -444,7 +445,7 @@
           return;
         }
         bluetoothDevice.gatt.disconnect();
-        
+        document.blue.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v12345678/tree2.png";
       });
 
       var button = document.getElementById("name");
