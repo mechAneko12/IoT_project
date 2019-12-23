@@ -351,6 +351,7 @@
         time = JSON.parse(result).time;
         num = JSON.parse(result).num;
         column = JSON.parse(result).column;
+        month_worktime = JSON.parse(result).thismonth;
         var n = column.length
         col = [""];
 
@@ -415,6 +416,28 @@
           d3[2][1] += d2[s][2];
         }
         data3 = google.visualization.arrayToDataTable(d3);
+
+        week_sum= 0;
+        week_sum_act = 0;
+        act_flag = 0;
+        for (var q = 1; q<8; q++){
+          week_sum += (d2[q][1]+d2[q][2]);
+          week_sum_act += d2[q][1];
+        }
+        if (week_sum == 0){
+          document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065068/pika_kvxid4.gif";
+          
+        }else{
+          if (week_sum_act/week_sum >= 0.8){
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065067/kuma_kjalct.gif";
+          }else{
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif";
+          }
+        }
+        
+        document.getElementById("thisweek").innerHTML = String(Math.round(week_sum))+ "時間";
+        document.getElementById("thismonth").innerHTML = month_worktime+ "時間";
+
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
               [     '', 'no data'],
@@ -496,6 +519,7 @@
         time = JSON.parse(result).time;
         num = JSON.parse(result).num;
         column = JSON.parse(result).column;
+        month_worktime = JSON.parse(result).thismonth;
         var n = column.length
         col = [""];
 
@@ -556,6 +580,27 @@
           d3[2][1] += d2[s][2];
         }
         data3 = google.visualization.arrayToDataTable(d3);
+        week_sum= 0;
+        week_sum_act = 0;
+        act_flag = 0;
+        for (var q = 1; q<8; q++){
+          week_sum += (d2[q][1]+d2[q][2]);
+          week_sum_act += d2[q][1];
+        }
+        if (week_sum == 0){
+          document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065068/pika_kvxid4.gif";
+          
+        }else{
+          if (week_sum_act/week_sum >= 0.8){
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065067/kuma_kjalct.gif";
+          }else{
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif";
+          }
+        }
+        
+        document.getElementById("thisweek").innerHTML = String(Math.round(week_sum))+ "時間";
+        document.getElementById("thismonth").innerHTML = month_worktime+ "時間";
+        
         if (column.length === 0){
           data = google.visualization.arrayToDataTable([
               [     '', 'no data'],
