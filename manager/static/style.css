@@ -134,6 +134,7 @@ hr{
   font-size: 14px;
   font-weight: 300;
   margin: 20px;
+  border-radius: 3px;
 }
 .button_on:hover{
   border-color: #1988ff;
@@ -152,6 +153,7 @@ hr{
   font-size: 14px;
   font-weight: 300;
   margin: 20px;
+  border-radius: 3px;
 }
 .button_off:hover{
   border-color: #ff2b2b;
