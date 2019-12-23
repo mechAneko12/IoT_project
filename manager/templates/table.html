@@ -36,7 +36,7 @@
           <thead>
               <tr>
                   <th>今日</th>
-                  <th>今週</th>
+                  <th>1週間</th>
                   <th>今月</th>
                   <th>累計</th>
               </tr>
@@ -56,7 +56,7 @@
     <div class = "eff">
       <div class = "eval" id="pie" style="width:70%; height:200pt" ></div>
       <div class = "eval" >    
-        <img width=150 src ="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/>
+        <img name = "ritsu" width=150 src ="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/>
       </div>
     </div>
     </div>
@@ -119,6 +119,9 @@
     var d2;
     var d3;
 
+    var week_sum;
+    var week_sum_act;
+    var act_flag;
     var month_worktime;
     var whole_worktime;
 
@@ -238,13 +241,28 @@
 
 
         document.getElementById("today").innerHTML = String(Math.round(d2[dayOfWeek+1][1]+d2[dayOfWeek+1][2]))+"時間";
-        var week_sum= 0;
+        week_sum= 0;
+        week_sum_act = 0;
+        act_flag = 0;
         for (var q = 1; q<8; q++){
-          week_sum += (d2[q][1]+d2[q][2])
+          week_sum += (d2[q][1]+d2[q][2]);
+          week_sum_act += d2[q][1];
         }
+        if (week_sum == 0){
+          document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065068/pika_kvxid4.gif";
+          
+        }else{
+          if (week_sum_act/week_sum >= 0.8){
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577065067/kuma_kjalct.gif";
+          }else{
+            document.ritsu.src = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif";
+          }
+        }
+        
         document.getElementById("thisweek").innerHTML = String(Math.round(week_sum))+ "時間";
         document.getElementById("thismonth").innerHTML = month_worktime+ "時間";
         document.getElementById("whole").innerHTML = whole_worktime+ "時間";
+        
 
         for (s = 1; s < 8; s++){
           d3[1][1] += d2[s][1];
