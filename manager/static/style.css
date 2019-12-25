@@ -341,7 +341,7 @@ border-bottom: 3px solid #F0E475;
 }
 /* アイコン画像 */
 .iconballoon .icon img{
-  width: 120px; /* 横幅 */
+  width: 160px; /* 横幅 */
   margin:0; /* 余白 */
 }
 /* アイコン画像 (amp)*/
