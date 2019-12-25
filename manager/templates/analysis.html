@@ -38,7 +38,7 @@
                 <div class="balloon">
                     ここに注目！
                 </div>
-            <div class="icon"><img src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/></div>
+            <div class="icon"><img src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577234505/ritsu_2_dash.png"/></div>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                 <div class="balloon">
                     しっかり管理しよう!
                 </div>
-            <div class="icon"><img src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1575967961/Rotating_earth__large_wy9cfd.gif"/></div>
+            <div class="icon"><img src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577234505/ritsu_1_dash.png"/></div>
             </div>
         </div>
     </div>
@@ -74,8 +74,14 @@
     response.then(function(data){
       console.log(data.d1);
       console.log(data.d2);
-      $("#list1").text(data.d1);
-      $("#list2").text(data.d2);
+      if (data.d1 == "lux"){
+        var l1 = "照度";
+      }
+      if (data.d2 == "temp_gap"){
+        var l2 = "室内外の温度差";
+      }
+      $("#list1").text(l1);
+      $("#list2").text(l2);
     });
 
     response = get_tree();
